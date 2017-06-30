@@ -1,4 +1,4 @@
-package com.monad.searcher;
+package com.monad.searcher.Adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

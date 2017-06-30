@@ -1,9 +1,13 @@
-package com.monad.searcher;
+package com.monad.searcher.Activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+
+import com.monad.searcher.Adapter.FragmentAdapter;
+import com.monad.searcher.Fragment.MyFragment;
+import com.monad.searcher.R;
 
 public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
 
