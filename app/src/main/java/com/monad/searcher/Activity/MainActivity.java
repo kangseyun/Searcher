@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.monad.searcher.Adapter.FragmentAdapter;
 import com.monad.searcher.Adapter.Pager;
@@ -17,9 +18,8 @@ import com.monad.searcher.R;
 public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, ViewPager.OnPageChangeListener {
     private Toolbar toolbar;
     private ViewPager viewPager;
-    private FragmentAdapter adapter;
     private TabLayout tabLayout;
-
+    private TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,17 +49,16 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     private void setupTabs() {
         // Title Setup
-        tabLayout.addTab(tabLayout.newTab().setText("피드"));
-        tabLayout.addTab(tabLayout.newTab().setText("TOP 20"));
-        tabLayout.addTab(tabLayout.newTab().setText("내 노래"));
-        tabLayout.addTab(tabLayout.newTab().setText("내 노래"));
-
+        tabLayout.addTab(tabLayout.newTab().setText("소식"));
+        tabLayout.addTab(tabLayout.newTab().setText("추천"));
+        tabLayout.addTab(tabLayout.newTab().setText("정보"));
+        tabLayout.addTab(tabLayout.newTab().setText("포트폴리오"));
     }
 
     private void setToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("소음 측정");
-        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        title = (TextView) findViewById(R.id.toolbar_title);
+        title.setText("홈");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
