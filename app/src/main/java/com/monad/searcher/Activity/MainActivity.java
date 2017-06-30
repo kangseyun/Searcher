@@ -1,10 +1,13 @@
 package com.monad.searcher.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.monad.searcher.Adapter.PagerAdapter;
@@ -15,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private TextView title;
+    private ImageView setting;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +58,19 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     private void setToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         title = (TextView) findViewById(R.id.toolbar_title);
+        setting = (ImageView) findViewById(R.id.setting);
         title.setText("홈");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
