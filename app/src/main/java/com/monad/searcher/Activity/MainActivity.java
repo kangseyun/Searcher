@@ -7,12 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import com.monad.searcher.Adapter.FragmentAdapter;
-import com.monad.searcher.Adapter.Pager;
-import com.monad.searcher.Fragment.MyFragment;
-import com.monad.searcher.Fragment.MyFragment2;
-import com.monad.searcher.Fragment.MyFragment3;
-import com.monad.searcher.Fragment.MyFragment4;
+import com.monad.searcher.Adapter.PagerAdapter;
 import com.monad.searcher.R;
 
 public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, ViewPager.OnPageChangeListener {
@@ -42,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     private void setViewPager() {
         viewPager = (ViewPager) findViewById(R.id.viewpager);
-        Pager adapter = new Pager(getSupportFragmentManager(), tabLayout.getTabCount());
+        PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setOnPageChangeListener(this);
         viewPager.setAdapter(adapter);
     }

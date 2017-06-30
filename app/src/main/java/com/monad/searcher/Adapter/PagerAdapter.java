@@ -10,10 +10,10 @@ import com.monad.searcher.Fragment.MyFragment3;
 import com.monad.searcher.Fragment.MyFragment4;
 
 
-public class Pager extends FragmentStatePagerAdapter {
+public class PagerAdapter extends FragmentStatePagerAdapter {
     int tabCount;
 
-    public Pager(FragmentManager fm, int tabCount) {
+    public PagerAdapter(FragmentManager fm, int tabCount) {
         super(fm);
         //Initializing tab count
         this.tabCount= tabCount;
