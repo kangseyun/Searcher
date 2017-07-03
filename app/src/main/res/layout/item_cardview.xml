@@ -10,13 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:elevation="10dp"
         card:cardCornerRadius="3dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="#616161">
+            android:background="#82b1ff">
 
             <TextView
                 android:id="@+id/name"

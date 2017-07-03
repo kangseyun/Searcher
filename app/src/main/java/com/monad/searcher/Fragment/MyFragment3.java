@@ -49,5 +49,15 @@ public class MyFragment3 extends Fragment {
         myDataset.add(new MyData("현대증권", "+19.42%" , "+7.31%"));
         myDataset.add(new MyData("삼성전자", "-13.78%" , "-7.36%"));
         myDataset.add(new MyData("LG화학", "+3.21%" , "+7.49%"));
+        myDataset.add(new MyData("현대증권", "+19.42%" , "+7.31%"));
+        myDataset.add(new MyData("삼성전자", "-13.78%" , "-7.36%"));
+        myDataset.add(new MyData("LG화학", "+3.21%" , "+7.49%"));
+        myDataset.add(new MyData("현대증권", "+19.42%" , "+7.31%"));
+        myDataset.add(new MyData("삼성전자", "-13.78%" , "-7.36%"));
+        myDataset.add(new MyData("LG화학", "+3.21%" , "+7.49%"));
+        myDataset.add(new MyData("현대증권", "+19.42%" , "+7.31%"));
+        myDataset.add(new MyData("삼성전자", "-13.78%" , "-7.36%"));
+        myDataset.add(new MyData("LG화학", "+3.21%" , "+7.49%"));
+
     }
 }
