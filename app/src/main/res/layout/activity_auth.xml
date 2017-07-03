@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="verical"
+    android:orientation="vertical"
     tools:context="com.monad.searcher.Activity.AuthActivity">
     <LinearLayout
         android:layout_weight="1"

@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -50,9 +51,9 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     private void setupTabs() {
         // Title Setup
         tabLayout.addTab(tabLayout.newTab().setText("소식"));
-        tabLayout.addTab(tabLayout.newTab().setText("추천"));
-        tabLayout.addTab(tabLayout.newTab().setText("정보"));
-        tabLayout.addTab(tabLayout.newTab().setText("포트폴리오"));
+        tabLayout.addTab(tabLayout.newTab().setText("조건"));
+        tabLayout.addTab(tabLayout.newTab().setText("검색"));
+        tabLayout.addTab(tabLayout.newTab().setText("커뮤니티"));
     }
 
     private void setToolbar() {
@@ -102,5 +103,13 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        if (menuItem.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(menuItem);
     }
 }
