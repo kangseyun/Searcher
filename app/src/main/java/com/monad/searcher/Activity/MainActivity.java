@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         // Title Setup
         tabLayout.addTab(tabLayout.newTab().setText("소식"));
         tabLayout.addTab(tabLayout.newTab().setText("조건"));
-        tabLayout.addTab(tabLayout.newTab().setText("검색"));
+        tabLayout.addTab(tabLayout.newTab().setText("증시 동향"));
         tabLayout.addTab(tabLayout.newTab().setText("커뮤니티"));
     }
 
