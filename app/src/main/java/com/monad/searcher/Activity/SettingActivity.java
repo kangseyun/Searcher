@@ -28,7 +28,7 @@ public class SettingActivity extends AppCompatActivity {
     private void setToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         title = (TextView) findViewById(R.id.toolbar_title);
-        title.setText("홈");
+        title.setText("설정");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

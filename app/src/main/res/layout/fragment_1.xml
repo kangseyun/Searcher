@@ -13,7 +13,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingTop="15dp">
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="증시정보"
+                android:layout_marginLeft="20dp"
+                android:gravity="center|left"
+                android:textSize="20dp"
+                android:layout_marginBottom="15dp"
+                android:textStyle="bold"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
@@ -39,9 +47,10 @@
                     android:layout_height="60dp"
                     android:orientation="horizontal">
                     <TextView
+                        android:textColor="#FF5252"
                         android:layout_weight="1"
                         android:layout_marginTop="3dp"
-                        android:layout_marginLeft="6dp"
+                        android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:textSize="30dp"
                         android:text="2500"
@@ -76,14 +85,17 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
+
                     <TextView
-                        android:layout_marginTop="3dp"
-                        android:layout_marginLeft="6dp"
-                        android:textStyle="bold"
-                        android:textSize="30dp"
-                        android:text="325"
+                        android:textColor="#448AFF"
+                        android:id="@+id/textView"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="3dp"
+                        android:text="325"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -110,8 +122,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
                     <TextView
+                        android:textColor="#FF5252"
                         android:layout_marginTop="3dp"
-                        android:layout_marginLeft="6dp"
+                        android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:textSize="30dp"
                         android:text="4320"
@@ -143,8 +156,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
                     <TextView
+                        android:textColor="#FF5252"
                         android:layout_marginTop="3dp"
-                        android:layout_marginLeft="6dp"
+                        android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:textSize="30dp"
                         android:text="2500"
@@ -154,9 +168,20 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_marginBottom="20dp"
-                android:background="@color/colorPrimary"
+                android:background="#607D8B"
                 android:layout_width="match_parent"
-                android:layout_height="113dp"></LinearLayout>
+                android:layout_height="130dp">
+                <TextView
+                    android:paddingTop="3dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#FFF"
+                    android:gravity="center"
+                    android:text="오늘의 이슈"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" />
+
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
@@ -181,6 +206,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"></LinearLayout>
             </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="써쳐 신호 종목"
+                android:layout_marginLeft="20dp"
+                android:textSize="20dp"
+                android:layout_marginBottom="15dp"
+                android:textStyle="bold"/>
         </LinearLayout>
 
     </ScrollView>
