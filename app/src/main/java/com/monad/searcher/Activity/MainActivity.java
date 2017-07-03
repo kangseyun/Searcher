@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         title = (TextView) findViewById(R.id.toolbar_title);
         setting = (ImageView) findViewById(R.id.setting);
-        title.setText("홈");
+        title.setText("Searcher");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
