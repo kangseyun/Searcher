@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
     <color name="cardBackColor1">#E3F2FD</color>
+
+    <color name="fabPrimary">#2196F3</color>
+    <color name="fabPressed">#6EB5F7</color>
+    <color name="fabRipple">#AED6FC</color>
 </resources>
