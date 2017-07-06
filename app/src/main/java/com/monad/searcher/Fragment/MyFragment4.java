@@ -11,7 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.monad.searcher.Activity.NoticeBoardActivity;
 import com.monad.searcher.Adapter.NoticeBoardRecyclerViewAdapter;
@@ -42,6 +41,7 @@ public class MyFragment4 extends Fragment {
         return v;
     }
 
+
     private void setRecyclerView()
     {
         // use this setting to improve performance if you know that changes
@@ -56,7 +56,6 @@ public class MyFragment4 extends Fragment {
         myDataset = new ArrayList<>();
         mAdapter = new NoticeBoardRecyclerViewAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
-
 
     }
 
