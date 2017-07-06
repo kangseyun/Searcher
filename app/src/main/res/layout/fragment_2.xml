@@ -3,111 +3,47 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
             <TextView
-                android:textStyle="bold"
-                android:textSize="20dp"
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="써처 조건식"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="30dp" />
-            
-            <android.support.v7.widget.CardView
-                android:layout_marginBottom="10dp"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:background="@color/colorPrimary"
+                android:id="@+id/spinner"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:elevation="8dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:text="60%"
-                        android:textColor="#fff"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:background="#00BFA5"
-                        android:layout_width="60dp"
-                        android:layout_height="match_parent"></TextView>
-                    <TextView
-                        android:textStyle="bold"
-                        android:textSize="25dp"
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="SAMSUNG"/>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:elevation="8dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:text="60%"
-                        android:textColor="#fff"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:background="#607D8B"
-                        android:layout_width="60dp"
-                        android:layout_height="match_parent"></TextView>
-                    <TextView
-                        android:textStyle="bold"
-                        android:textSize="25dp"
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="LG"/>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:elevation="8dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="60%"
-                    android:textColor="#fff"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="#0091EA"
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"></TextView>
-                <TextView
-                    android:textStyle="bold"
-                    android:textSize="25dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="NC Soft"/>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp" />
+
+          <android.support.v7.widget.RecyclerView
+              android:id="@+id/fragment2_recycler"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+          </android.support.v7.widget.RecyclerView>
         </LinearLayout>
     </ScrollView>
-   
-    
+
+
 </LinearLayout>
