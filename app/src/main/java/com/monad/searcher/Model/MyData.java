@@ -9,9 +9,8 @@ public class MyData {
         this.KOSDAQ = KOSDAQ;
     }
 
-    public MyData(String title, String contents) {
+    public MyData(String title) {
         this.title = title;
-        this.contents = contents;
     }
 
     public int setProperty()
