@@ -3,6 +3,7 @@ package com.monad.searcher.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,14 +27,14 @@ public class MyFragment4 extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<MyData> myDataset;
-    private Button btn;
+    private FloatingActionButton btn;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_4, container, false);
         mRecyclerView = (RecyclerView) v.findViewById(R.id.notice_board);
-        btn = (Button) v.findViewById(R.id.btn);
+        btn = (FloatingActionButton) v.findViewById(R.id.btn);
         setRecyclerView();
         setNoticeBoard();
         return v;
