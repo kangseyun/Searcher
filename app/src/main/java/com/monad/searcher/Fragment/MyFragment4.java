@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +20,6 @@ import com.monad.searcher.R;
 
 import java.util.ArrayList;
 
-import static com.monad.searcher.R.id.btn_fragment;
 
 public class MyFragment4 extends Fragment {
     private View v;
@@ -27,18 +27,15 @@ public class MyFragment4 extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<MyData> myDataset;
-    private Button mbtn;
+    private FloatingActionButton mbtn;
     public static Context mContext;
-
-
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_4, container, false);
         mRecyclerView = (RecyclerView) v.findViewById(R.id.notice_board);
-        mbtn = (Button) v.findViewById(btn_fragment);
-
+        mbtn = (FloatingActionButton) v.findViewById(R.id.fab);
         mContext = getContext();
         setRecyclerView();
         setBtn();

@@ -2,43 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="제목을 입력해주세요"
-        android:textSize="17dp"
-        android:layout_margin="15dp"/>
-
-    <EditText
-        android:id="@+id/title"
+    <include layout="@layout/toolbar" />
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp" />
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="제목을 입력해주세요"
+            android:textSize="17dp"
+            android:layout_margin="15dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="내용을 입력해주세요"
-        android:textSize="17dp"
-        android:layout_margin="15dp"/>
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
 
-    <EditText
-        android:id="@+id/contents"
-        android:layout_width="match_parent"
-        android:layout_height="330dp"
-        android:layout_marginBottom="47dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내용을 입력해주세요"
+            android:textSize="17dp"
+            android:layout_margin="15dp"/>
 
+        <EditText
+            android:id="@+id/contents"
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            android:layout_marginBottom="47dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+    </LinearLayout>
     <Button
+        android:layout_gravity="bottom"
         android:id="@+id/btn_noticeboard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="#2196F3"
         android:text="작성하기"
         android:textColor="#fff"
         android:textSize="17dp" />
-
 </LinearLayout>
