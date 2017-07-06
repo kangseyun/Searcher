@@ -3,17 +3,18 @@ package com.monad.searcher.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
-import com.monad.searcher.Adapter.RecyclerViewAdapter;
+import com.monad.searcher.Adapter.NoticeBoardRecyclerViewAdapter;
 import com.monad.searcher.Model.MyData;
 import com.monad.searcher.R;
 
@@ -25,23 +26,16 @@ public class MyFragment4 extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<MyData> myDataset;
-    private FloatingActionButton fab;
+    private Button btn;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_4, container, false);
         mRecyclerView = (RecyclerView) v.findViewById(R.id.notice_board);
-        //fab = (FloatingActionButton) v.findViewById(R.id.fab) ;
-        /*fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in = new Intent(getActivity(), MyFragment4.class);
-                startActivity(in);
-            }
-        })*/
+        btn = (Button) v.findViewById(R.id.btn);
         setRecyclerView();
-        //setNoticeBoard();
+        setNoticeBoard();
         return v;
     }
 
@@ -57,13 +51,13 @@ public class MyFragment4 extends Fragment {
 
         // specify an adapter (see also next example)
         myDataset = new ArrayList<>();
-        mAdapter = new RecyclerViewAdapter(myDataset);
+        mAdapter = new NoticeBoardRecyclerViewAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
     }
 
     private void setNoticeBoard()
     {
-        fab.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
@@ -77,6 +71,7 @@ public class MyFragment4 extends Fragment {
                 alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         final String username = name.getText().toString(); // 유효성 검사
+
                         AlertDialog.Builder contents = new AlertDialog.Builder(getContext()) ;
 
                         contents.setTitle("내용을 입력하세요") ;
@@ -87,16 +82,18 @@ public class MyFragment4 extends Fragment {
 
                         contents.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dlg, int sumthin) {
-                                        String usermessage = message.getText().toString(); // 유효성 검사
+                                        final String usermessage = message.getText().toString(); // 유효성 검사
                                         myDataset.add(new MyData(username,usermessage));
+                                        Log.i("AAAAAA",username);
+                                        Log.i("AAAAAA",usermessage);
                                     }
                         });
                         contents.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dlg, int sumthin) {
                             }
                         });
-                        contents.show(); // 팝업창 보여줌
-                        }
+                        contents.show();
+                    }
                 });
                 alert.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {

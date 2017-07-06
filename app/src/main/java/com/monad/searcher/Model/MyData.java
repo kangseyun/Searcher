@@ -1,7 +1,5 @@
 package com.monad.searcher.Model;
 
-import android.util.Log;
-
 public class MyData {
     public String name,KOSPI,KOSDAQ,title,contents;
 
@@ -9,7 +7,6 @@ public class MyData {
         this.name = name;
         this.KOSPI = KOSPI;
         this.KOSDAQ = KOSDAQ;
-        Log.i("AAAA",KOSPI);
     }
 
     public MyData(String title, String contents) {
