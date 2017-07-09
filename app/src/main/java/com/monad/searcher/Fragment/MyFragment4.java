@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.monad.searcher.Activity.NoticeBoardActivity;
 import com.monad.searcher.Adapter.NoticeBoardRecyclerViewAdapter;
-import com.monad.searcher.Model.MyData;
+import com.monad.searcher.Model.MyData2;
 import com.monad.searcher.R;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class MyFragment4 extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<MyData> myDataset;
+    private ArrayList<MyData2> myDataset;
     private FloatingActionButton mbtn;
     public static Context mContext;
 
@@ -56,6 +56,11 @@ public class MyFragment4 extends Fragment {
         myDataset = new ArrayList<>();
         mAdapter = new NoticeBoardRecyclerViewAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
+
+        myDataset.add(new MyData2("아 기분 좋다", "딱좋다" , "2017/07/08"));
+        myDataset.add(new MyData2("아 기분 좋다", "딱좋다" , "2017/07/08"));
+        myDataset.add(new MyData2("아 기분 좋다", "딱좋다" , "2017/07/08"));
+        myDataset.add(new MyData2("아 기분 좋다", "딱좋다" , "2017/07/08"));
 
     }
 

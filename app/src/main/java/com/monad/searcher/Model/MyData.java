@@ -1,16 +1,12 @@
 package com.monad.searcher.Model;
 
 public class MyData {
-    public String name,KOSPI,KOSDAQ,title,contents;
+    public String name,KOSPI,KOSDAQ;
 
     public MyData(String name, String KOSPI, String KOSDAQ) {
         this.name = name;
         this.KOSPI = KOSPI;
         this.KOSDAQ = KOSDAQ;
-    }
-
-    public MyData(String title) {
-        this.title = title;
     }
 
     public int setProperty()

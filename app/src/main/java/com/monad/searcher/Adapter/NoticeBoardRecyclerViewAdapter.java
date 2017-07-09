@@ -6,13 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.monad.searcher.Model.MyData;
+import com.monad.searcher.Model.MyData2;
 import com.monad.searcher.R;
 
 import java.util.ArrayList;
 
 public class NoticeBoardRecyclerViewAdapter extends RecyclerView.Adapter<NoticeBoardRecyclerViewAdapter.ViewHolder> {
-    private ArrayList<MyData> mDataset;
+    private ArrayList<MyData2> mDataset;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -20,17 +20,19 @@ public class NoticeBoardRecyclerViewAdapter extends RecyclerView.Adapter<NoticeB
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView mtitle;
-        public TextView mcontents;
+        public TextView mid;
+        public TextView mtime;
 
         public ViewHolder(View view) {
             super(view);
             mtitle = (TextView)view.findViewById(R.id.title);
-            mcontents = (TextView)view.findViewById(R.id.contents);
+            mid = (TextView)view.findViewById(R.id.id);
+            mtime = (TextView)view.findViewById(R.id.time);
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public NoticeBoardRecyclerViewAdapter(ArrayList<MyData> myDataset) {
+    public NoticeBoardRecyclerViewAdapter(ArrayList<MyData2> myDataset) {
         mDataset = myDataset;
     }
 
@@ -52,7 +54,8 @@ public class NoticeBoardRecyclerViewAdapter extends RecyclerView.Adapter<NoticeB
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.mtitle.setText(mDataset.get(position).title);
-        holder.mcontents.setText(mDataset.get(position).contents);
+        holder.mid.setText(mDataset.get(position).id);
+        holder.mtime.setText(mDataset.get(position).time);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

@@ -5,7 +5,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="#cfd8dc"
+    android:paddingTop="10dp">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/notice_board"
@@ -21,6 +23,6 @@
         android:layout_margin="16dp"
         android:layout_gravity="bottom|end"
         android:clickable="true"
-        android:src="@drawable/plus" />
+        android:src="@drawable/ic_create_white_24dp" />
 
 </android.support.design.widget.CoordinatorLayout>
