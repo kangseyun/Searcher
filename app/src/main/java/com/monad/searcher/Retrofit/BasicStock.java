@@ -15,4 +15,12 @@ public interface BasicStock {
     @GET("/kospi/")
     Call<List<BasicStockModel>> getKospi();
 
+    @GET("/kosdaq/")
+    Call<List<BasicStockModel>> getKosdaq();
+
+    @GET("/nasdaq/")
+    Call<List<BasicStockModel>> getNasdaq();
+
+    @GET("/dji/")
+    Call<List<BasicStockModel>> getDji();
 }
