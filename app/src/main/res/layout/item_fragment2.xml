@@ -19,7 +19,7 @@
             android:gravity="center"
             android:background="#00BFA5"
             android:layout_width="60dp"
-            android:layout_height="match_parent"></TextView>
+            android:layout_height="match_parent"/>
         <TextView
             android:id="@+id/item_fragment2_name"
             android:textStyle="bold"

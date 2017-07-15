@@ -18,8 +18,9 @@
         </activity>
         <activity android:name=".IntroActivity" />
         <activity android:name=".Activity.AuthActivity" />
-        <activity android:name=".Activity.SettingActivity"></activity>
-        <activity android:name=".Activity.NoticeBoardActivity"></activity>
+        <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.SettingActivity"/>
+        <activity android:name=".Activity.NoticeBoardActivity"/>
     </application>
 
 </manifest>
