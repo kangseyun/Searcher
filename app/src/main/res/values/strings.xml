@@ -3,4 +3,5 @@
     <string name="server_client_id">287943246378-c2gaj78rlabr460ll2c4f8tpl4ls0tij.apps.googleusercontent.com</string>
     <string name="signed_in_fmt">Signed in as: %s</string>
     <string name="signed_out">Signed out</string>
+    <string name="loading">Loading…</string>
 </resources>
