@@ -1,33 +1,27 @@
 {
   "project_info": {
-    "project_number": "287943246378",
-    "project_id": "default-demo-app-2e6e9"
+    "project_number": "922902433529",
+    "firebase_url": "https://searcher-5babd.firebaseio.com",
+    "project_id": "searcher-5babd",
+    "storage_bucket": "searcher-5babd.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:287943246378:android:27d689d63f1b7a06",
+        "mobilesdk_app_id": "1:922902433529:android:b7657959c4c1bb3a",
         "android_client_info": {
           "package_name": "com.monad.searcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "287943246378-muheqd0ma6qg70j745rucjb1ghvu79sb.apps.googleusercontent.com",
+          "client_id": "922902433529-j59qebvr6v8f590849i8is14cmtec62u.apps.googleusercontent.com",
           "client_type": 3
-        },
-        {
-          "client_id": "287943246378-fm8cuhmqicjmrdlkoufigu3t1o8mdqk0.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.google.samples.quickstart.signin",
-            "certificate_hash": "feb77869d0bb067218f5235d1e46307d141a0a4b"
-          }
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyALdhP8YBq6tPrXOmIkBwK-y2sIrDJ3BK0"
+          "current_key": "AIzaSyAnw59UjccW-OeH-oP0Z0r-cwJpWB3RoSM"
         }
       ],
       "services": {
@@ -39,7 +33,7 @@
           "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }
