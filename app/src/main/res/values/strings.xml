@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Searcher</string>
-    <string name="server_client_id">287943246378-c2gaj78rlabr460ll2c4f8tpl4ls0tij.apps.googleusercontent.com</string>
+    <string name="server_client_id">287943246378-kotu3pkobscgordbajtfrjv7gr95ee0l.apps.googleusercontent.com</string>
     <string name="signed_in_fmt">Signed in as: %s</string>
     <string name="signed_out">Signed out</string>
     <string name="loading">Loading…</string>
+    <string name="desc_google_icon">Google Logo</string>
+    <string name="title_text">Google Sign-In\nQuickstart</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="disconnect">Disconnect</string>
 </resources>
