@@ -1,33 +1,27 @@
 {
   "project_info": {
-    "project_number": "429986935079",
-    "project_id": "searcher-ce39e"
+    "project_number": "587988582551",
+    "firebase_url": "https://searcher-5598d.firebaseio.com",
+    "project_id": "searcher-5598d",
+    "storage_bucket": "searcher-5598d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:429986935079:android:b7657959c4c1bb3a",
+        "mobilesdk_app_id": "1:587988582551:android:b7657959c4c1bb3a",
         "android_client_info": {
           "package_name": "com.monad.searcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "429986935079-bl6vpc5otigmb7gur0nakmp8aibl6f1s.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.monad.searcher",
-            "certificate_hash": "feb77869d0bb067218f5235d1e46307d141a0a4b"
-          }
-        },
-        {
-          "client_id": "429986935079-m644p15vsimlt9ermf4mncs0ekhtlvjl.apps.googleusercontent.com",
+          "client_id": "587988582551-jnt1vg8hupn7usfvbnpmg2t2t8bc14g5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCLQymraWHl3reRdbQ-nS9QIqAgiUnZrhU"
+          "current_key": "AIzaSyCnpUFk5Irl_2o-EQcqR0BS4PvGD6s-VQI"
         }
       ],
       "services": {
@@ -39,7 +33,7 @@
           "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

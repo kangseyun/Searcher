@@ -124,7 +124,7 @@ public class MyFragment extends Fragment {
             @Override
             public void onResponse(Call<List<IssueModel>> call, Response<List<IssueModel>> response) {
                 List<IssueModel> data = response.body();
-                Log.i("data", data.get(0).getSubject());
+                //Log.i("data", data.get(0).getSubject());
             }
 
             @Override

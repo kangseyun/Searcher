@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -19,7 +20,19 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.monad.searcher.Model.LoginData;
 import com.monad.searcher.R;
+import com.monad.searcher.Retrofit.Login;
+import com.monad.searcher.Util.RetrofitService;
+
+import java.util.List;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 
 /**
  * Activity to demonstrate basic retrieval of the Google user's ID, email address, and basic
@@ -37,10 +50,16 @@ public class LoginActivity extends AppCompatActivity implements
     private ProgressDialog mProgressDialog;
     private SignInButton signInButton;
 
+    private Retrofit retrofit;
+    private Login login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        retrofit = RetrofitService.getInstnace();
+        login = retrofit.create(Login.class);
 
         mStatusTextView = (TextView) findViewById(R.id.status);
 
@@ -93,6 +112,8 @@ public class LoginActivity extends AppCompatActivity implements
         if (result.isSuccess()) {
             GoogleSignInAccount acct = result.getSignInAccount();
             mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
+
+            requestLogin(acct.getEmail());
             updateUI(true);
         } else {
             updateUI(false);
@@ -120,6 +141,7 @@ public class LoginActivity extends AppCompatActivity implements
 
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            Log.d("Test", result.getStatus().toString());
             handleSignInResult(result);
         }
     }
@@ -182,5 +204,21 @@ public class LoginActivity extends AppCompatActivity implements
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
         }
+    }
+
+    private void requestLogin(String email) {
+       Call<List<LoginData>> load = login.requestLogin(email);
+
+        load.enqueue(new Callback<List<LoginData>>() {
+            @Override
+            public void onResponse(Call<List<LoginData>> call, Response<List<LoginData>> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<List<LoginData>> call, Throwable t) {
+                Log.d("fail", t.getMessage());
+            }
+        });
     }
 }
