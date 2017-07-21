@@ -33,7 +33,9 @@
             </LinearLayout>
         </android.support.v7.widget.Toolbar>
     </LinearLayout>
+
     <TextView
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:text="General"
         android:textSize="15sp"
@@ -41,6 +43,7 @@
         android:paddingLeft="16dp"
         android:paddingBottom="12dp"
         android:layout_height="wrap_content" />
+
     <LinearLayout
         android:id="@+id/setting_level"
         android:clickable="true"
@@ -123,5 +126,24 @@
                 android:fontFamily="sans-serif"
                 android:text="추천 종목과 알림에대하여 푸쉬 알람을 받습니다."/>
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="bottom"
+            android:background="@color/colorPrimary"
+            android:text="로그인 / 로그아웃"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
     </LinearLayout>
 </LinearLayout>
