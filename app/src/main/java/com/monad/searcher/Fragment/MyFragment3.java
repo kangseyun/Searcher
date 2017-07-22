@@ -1,6 +1,5 @@
 package com.monad.searcher.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,11 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.monad.searcher.Activity.LoginActivity;
 import com.monad.searcher.Adapter.RecyclerViewAdapter;
 import com.monad.searcher.Model.MyData;
 import com.monad.searcher.R;
@@ -29,7 +26,6 @@ public class MyFragment3 extends Fragment {
     private LinearLayout mLinearLayout;
     private MyData mMydata;
     private ImageView mImage;
-    private Button mlogin;
 
     @Nullable
     @Override
@@ -38,13 +34,6 @@ public class MyFragment3 extends Fragment {
         mRecyclerView = (RecyclerView) v.findViewById(R.id.my_recycler_view);
         mLinearLayout = (LinearLayout) v.findViewById(R.id.color);
         mImage = (ImageView) v.findViewById(R.id.image);
-        mlogin = (Button) v.findViewById(R.id.login);
-        mlogin.setOnClickListener(new Button.OnClickListener(){
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), LoginActivity.class);
-                startActivity(intent);
-            }
-        });
         setRecyclerView();
         return v;
     }

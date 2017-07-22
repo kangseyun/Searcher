@@ -9,9 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical"
         android:background="#cfd8dc"
-        android:paddingTop="10dp">
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:weightSum="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,15 +28,16 @@
             android:layout_height="30dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/border" />
+            android:background="@drawable/border"
+            android:paddingLeft="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="내용을 입력해주세요"
-            android:layout_marginTop="30dp"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:text="내용을 입력해주세요"
             android:textColor="#4e342e"
             android:textSize="17dp" />
 
@@ -47,8 +49,10 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="5dp"
+            android:layout_weight="0.00"
             android:background="@drawable/border"
-            android:gravity="top"/>
+            android:gravity="top"
+            android:paddingLeft="5dp" />
     </LinearLayout>
 
     <Button

@@ -7,10 +7,12 @@
     android:layout_height="80dp"
     android:elevation="8dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/stock">
         <TextView
             android:id="@+id/item_fragment2_point"
             android:text="60%"
