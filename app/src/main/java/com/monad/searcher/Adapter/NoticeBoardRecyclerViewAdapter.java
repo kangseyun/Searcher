@@ -13,11 +13,12 @@ import java.util.ArrayList;
 
 public class NoticeBoardRecyclerViewAdapter extends RecyclerView.Adapter<NoticeBoardRecyclerViewAdapter.ViewHolder> {
     private ArrayList<MyData2> mDataset;
+    private static ClickListener clickListener;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
         // each data item is just a string in this case
         public TextView mtitle;
         public TextView mid;
@@ -25,9 +26,22 @@ public class NoticeBoardRecyclerViewAdapter extends RecyclerView.Adapter<NoticeB
 
         public ViewHolder(View view) {
             super(view);
+            view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
             mtitle = (TextView)view.findViewById(R.id.title);
             mid = (TextView)view.findViewById(R.id.id);
             mtime = (TextView)view.findViewById(R.id.time);
+        }
+
+        @Override
+        public void onClick(View v) {
+            clickListener.onItemClick(getAdapterPosition(), v);
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            clickListener.onItemLongClick(getAdapterPosition(), v);
+            return false;
         }
     }
 
@@ -62,5 +76,14 @@ public class NoticeBoardRecyclerViewAdapter extends RecyclerView.Adapter<NoticeB
     @Override
     public int getItemCount() {
         return mDataset.size();
+    }
+
+    public void setOnItemClickListener(ClickListener clickListener) {
+        NoticeBoardRecyclerViewAdapter.clickListener = clickListener;
+    }
+
+    public interface ClickListener {
+        void onItemClick(int position, View v);
+        void onItemLongClick(int position, View v);
     }
 }

@@ -1,16 +1,19 @@
 package com.monad.searcher.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.monad.searcher.Activity.ConditionStockActivity;
 import com.monad.searcher.Adapter.Fragment2Adapter;
 import com.monad.searcher.Model.Fragment2Model;
 import com.monad.searcher.R;
@@ -20,7 +23,7 @@ import java.util.ArrayList;
 public class MyFragment2 extends Fragment {
     private View v;
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private Fragment2Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<Fragment2Model> myDataset;
     private Spinner spinner;
@@ -64,6 +67,20 @@ public class MyFragment2 extends Fragment {
 
         myDataset.add(new Fragment2Model(1, "13.78"));
         myDataset.add(new Fragment2Model(1, "3.21"));
+
+        mAdapter.setOnItemClickListener(new Fragment2Adapter.ClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                Log.i("Click", position  + "");
+                Intent i = new Intent(getContext(), ConditionStockActivity.class);
+                startActivity(i);
+            }
+
+            @Override
+            public void onItemLongClick(int position, View v) {
+
+            }
+        });
     }
 
     private void setStock()

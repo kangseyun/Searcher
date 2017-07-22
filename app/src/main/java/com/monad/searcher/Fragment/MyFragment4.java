@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.monad.searcher.Activity.NoticeBoardActivity;
+import com.monad.searcher.Activity.NoticeViewActivity;
 import com.monad.searcher.Adapter.NoticeBoardRecyclerViewAdapter;
 import com.monad.searcher.Model.CommunityModel;
 import com.monad.searcher.Model.IssueModel;
@@ -37,7 +38,7 @@ import retrofit2.Retrofit;
 public class MyFragment4 extends Fragment {
     private View v;
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private NoticeBoardRecyclerViewAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<MyData2> myDataset;
     private FloatingActionButton mbtn;
@@ -98,6 +99,20 @@ public class MyFragment4 extends Fragment {
         };
 
         getArticles(getArticlesCallback);
+
+
+        mAdapter.setOnItemClickListener(new NoticeBoardRecyclerViewAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                Intent i = new Intent(getContext(), NoticeViewActivity.class);
+                startActivity(i);
+            }
+
+            @Override
+            public void onItemLongClick(int position, View v) {
+
+            }
+        });
     }
 
     private void setBtn()

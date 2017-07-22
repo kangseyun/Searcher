@@ -19,21 +19,22 @@
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Activity.AuthActivity" />
         <activity android:name=".Activity.LoginActivity" />
-        <activity android:name=".Activity.SettingActivity"/>
-        <activity android:name=".Activity.NoticeBoardActivity"/>
+        <activity android:name=".Activity.SettingActivity" />
+        <activity android:name=".Activity.NoticeBoardActivity" />
 
-        <service
-            android:name=".Util.MyFirebaseMessagingService">
+        <service android:name=".Util.MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Util.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-        <service
-            android:name=".Util.MyFirebaseInstanceIDService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-            </intent-filter>
-        </service>
+        <activity android:name=".Activity.ConditionStockActivity" />
+        <activity android:name=".Activity.NoticeViewActivity"></activity>
     </application>
+
 </manifest>
