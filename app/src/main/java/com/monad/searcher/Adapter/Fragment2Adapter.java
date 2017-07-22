@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.monad.searcher.Model.Fragment2Model;
-import com.monad.searcher.Model.MyData;
 import com.monad.searcher.R;
 
 import java.util.ArrayList;
+
 
 public class Fragment2Adapter extends RecyclerView.Adapter<Fragment2Adapter.ViewHolder> {
     private ArrayList<Fragment2Model> mDataset;
@@ -32,7 +32,7 @@ public class Fragment2Adapter extends RecyclerView.Adapter<Fragment2Adapter.View
 
     // Provide a suitable constructor (depends on the kind of dataset)
     public Fragment2Adapter(ArrayList<Fragment2Model> myDataset) {
-        mDataset = myDataset;
+        this.mDataset = myDataset;
     }
 
     // Create new views (invoked by the layout manager)

@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.monad.searcher.Adapter.Fragment2Adapter;
@@ -24,13 +23,15 @@ public class MyFragment2 extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<Fragment2Model> myDataset;
-    private LinearLayout mLinearLayout;
     private Spinner spinner;
     private ArrayList<String> test = new ArrayList<>();
+    private Fragment2Adapter mmodel;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_2, container, false);
+        mRecyclerView = (RecyclerView) v.findViewById(R.id.fragment2_recycler);
         setRecyclerView();
         setSpinner();
         return v;
@@ -39,21 +40,16 @@ public class MyFragment2 extends Fragment {
     private void setSpinner() {
         test.add("조건식1");
         test.add("조건식2");
-
-
         spinner = (Spinner) v.findViewById(R.id.spinner);
         ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.spin, test);
         spinner.setAdapter(adapter);
-
-
-
-        spinner.setAdapter(adapter);
     }
+
     private void setRecyclerView()
     {
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
-        mRecyclerView = (RecyclerView) v.findViewById(R.id.fragment2_recycler);
+
 
         mRecyclerView.setHasFixedSize(true);
 
@@ -68,5 +64,10 @@ public class MyFragment2 extends Fragment {
 
         myDataset.add(new Fragment2Model(1, "13.78"));
         myDataset.add(new Fragment2Model(1, "3.21"));
+    }
+
+    private void setStock()
+    {
+
     }
 }

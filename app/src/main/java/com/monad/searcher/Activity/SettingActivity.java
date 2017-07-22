@@ -21,16 +21,8 @@ public class SettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         setToolbar();
-
         mlogin = (Button) findViewById(R.id.login);
-
-        mlogin.setOnClickListener(new Button.OnClickListener(){
-            public void onClick(View v) {
-                Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        setLogin();
     }
 
     private void setToolbar() {
@@ -48,5 +40,14 @@ public class SettingActivity extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(menuItem);
+    }
+
+    private void setLogin(){
+        mlogin.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
