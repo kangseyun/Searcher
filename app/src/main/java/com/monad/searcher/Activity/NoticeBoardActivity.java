@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -11,22 +12,41 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.monad.searcher.Model.CommunityModel;
+import com.monad.searcher.Model.IssueModel;
+import com.monad.searcher.Model.LoginData;
+import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.R;
+import com.monad.searcher.Retrofit.Community;
+import com.monad.searcher.Util.RetrofitService;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
+import static com.monad.searcher.Util.RetrofitService.getInstnace;
 
 public class NoticeBoardActivity extends AppCompatActivity {
     private Button mWrite;
     private EditText mtitle;
-    private String usertitle;
     private Toolbar toolbar;
     private ImageView setting;
+
     private TextView title;
+    private TextView contents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.noticeboard);
         mWrite = (Button) findViewById(R.id.btn_noticeboard);
+
         mtitle = (EditText) findViewById(R.id.title);
+        contents = (EditText) findViewById(R.id.contents);
+
         setToolbar();
         setWrite();
     }
@@ -36,7 +56,11 @@ public class NoticeBoardActivity extends AppCompatActivity {
         mWrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String titleString = mtitle.getText().toString();
+                String contentString = contents.getText().toString();
 
+                postArticle(titleString, contentString);
+                finish();
             }
         });
     }
@@ -65,5 +89,30 @@ public class NoticeBoardActivity extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(menuItem);
+    }
+
+    public void postArticle(String title, String content) {
+        Retrofit retrofit;
+        Community community;
+
+        LoginSingleton login = LoginSingleton.getInstance();
+
+        retrofit = RetrofitService.getInstnace();
+        community = retrofit.create(Community.class);
+
+        Call<List<CommunityModel>> load = community.postArticles(title, content, login.getToken());
+
+        load.enqueue(new Callback<List<CommunityModel>>() {
+            @Override
+            public void onResponse(Call<List<CommunityModel>> call, Response<List<CommunityModel>> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<List<CommunityModel>> call, Throwable t) {
+                Log.d("fail", t.getMessage());
+            }
+        });
+
     }
 }
