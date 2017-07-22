@@ -8,17 +8,31 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.monad.searcher.Activity.NoticeBoardActivity;
 import com.monad.searcher.Adapter.NoticeBoardRecyclerViewAdapter;
+import com.monad.searcher.Model.CommunityModel;
+import com.monad.searcher.Model.IssueModel;
+import com.monad.searcher.Model.LoginData;
 import com.monad.searcher.Model.MyData2;
 import com.monad.searcher.R;
+import com.monad.searcher.Retrofit.Community;
+import com.monad.searcher.Util.RetrofitService;
 
+import org.json.JSONArray;
+
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class MyFragment4 extends Fragment {
     private View v;
@@ -27,6 +41,7 @@ public class MyFragment4 extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<MyData2> myDataset;
     private FloatingActionButton mbtn;
+
     public static Context mContext;
 
     @Nullable
@@ -41,6 +56,11 @@ public class MyFragment4 extends Fragment {
         return v;
     }
 
+    @Override
+    public void onResume() {
+        setRecyclerView();
+        super.onResume();
+    }
 
     private void setRecyclerView()
     {
@@ -57,11 +77,27 @@ public class MyFragment4 extends Fragment {
         mAdapter = new NoticeBoardRecyclerViewAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
 
-        myDataset.add(new MyData2("아 기분 좋다", "딱좋다" , "2017/07/08"));
-        myDataset.add(new MyData2("아 기분 좋다", "딱좋다" , "2017/07/08"));
-        myDataset.add(new MyData2("아 기분 좋다", "딱좋다" , "2017/07/08"));
-        myDataset.add(new MyData2("아 기분 좋다", "딱좋다" , "2017/07/08"));
+        Callback<List<CommunityModel>> getArticlesCallback = new Callback<List<CommunityModel>>() {
+            @Override
+            public void onResponse(Call<List<CommunityModel>> call, Response<List<CommunityModel>> response) {
+                List<CommunityModel> data = response.body();
 
+                myDataset.clear();
+                for(CommunityModel i : data) {
+                    DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+
+                    myDataset.add(new MyData2(i.getContent(), i.getUserName(), dateformat.format(i.getCreated())));
+                    mAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<CommunityModel>> call, Throwable t) {
+                Log.d("fail", t.getMessage());
+            }
+        };
+
+        getArticles(getArticlesCallback);
     }
 
     private void setBtn()
@@ -73,5 +109,17 @@ public class MyFragment4 extends Fragment {
                 startActivity(intent);
             }
         });
+    }
+
+    private void getArticles(Callback<List<CommunityModel>> callback) {
+        Retrofit retrofit;
+        Community community;
+
+        retrofit = RetrofitService.getInstnace();
+        community = retrofit.create(Community.class);
+
+        Call<List<CommunityModel>> load = community.getArticles();
+
+        load.enqueue(callback);
     }
 }

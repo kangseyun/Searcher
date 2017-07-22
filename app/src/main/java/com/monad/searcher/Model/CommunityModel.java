@@ -3,20 +3,17 @@ package com.monad.searcher.Model;
 import java.util.Date;
 
 /**
- * Created by temp on 2017. 7. 14..
+ * Created by x86kernel on 7/22/17.
  */
 
-public class IssueModel {
+public class CommunityModel {
     private int id;
 
     private String subject;
     private String content;
+    private String user_name;
 
     Date created;
-
-    public IssueModel() {
-
-    }
 
     public int getId() {
         return id;
@@ -26,9 +23,9 @@ public class IssueModel {
         this.id = id;
     }
 
-    public String getSubject() {
-        return subject;
-    }
+    public String getSubject() { return subject; }
+    public String getContent() { return content; }
+    public String getUserName() { return user_name; };
 
     public Date getCreated() { return created; }
 
@@ -36,9 +33,6 @@ public class IssueModel {
         this.subject = subject;
     }
 
-    public String getContent() {
-        return content;
-    }
 
     public void setContent(String content) {
         this.content = content;
