@@ -19,11 +19,12 @@ public class StockRecyclerViewAdapter extends RecyclerView.Adapter<StockRecycler
     // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public TextView mname;
+        public TextView mname,mprice;
 
         public ViewHolder(View view) {
             super(view);
             mname = (TextView)view.findViewById(R.id.stock_name);
+            mprice = (TextView)view.findViewById(R.id.stock_price);
         }
     }
 
@@ -50,6 +51,7 @@ public class StockRecyclerViewAdapter extends RecyclerView.Adapter<StockRecycler
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.mname.setText(mDataset.get(position).stock_name);
+        holder.mprice.setText(mDataset.get(position).stock_price);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

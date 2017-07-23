@@ -49,11 +49,11 @@ public class ConditionStockActivity extends AppCompatActivity {
         mAdapter = new StockRecyclerViewAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
 
-        myDataset.add(new StockData("현재가"));
-        myDataset.add(new StockData("등락률"));
-        myDataset.add(new StockData("거래량"));
-        myDataset.add(new StockData("편입가"));
-        myDataset.add(new StockData("편익대비수익률"));
+        myDataset.add(new StockData("SAMSUNG","+25.37%"));
+        myDataset.add(new StockData("LG","+22.73%"));
+        myDataset.add(new StockData("한화","+18.24%"));
+        myDataset.add(new StockData("기아","+13.93%"));
+        myDataset.add(new StockData("애플","+9.43%"));
     }
 
     private void setToolbar() {

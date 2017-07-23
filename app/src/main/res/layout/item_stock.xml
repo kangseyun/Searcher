@@ -5,45 +5,25 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="right"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_marginTop="5dp"
+        android:gravity="right">
 
         <TextView
             android:id="@+id/stock_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="120dp"
-            android:paddingLeft="100dp"
-            android:paddingTop="10dp"
-            android:text="종목명"
-            android:textSize="25dp" />
+            android:text="SAMSUNG"
+            android:layout_weight="0.9"/>
 
-        <LinearLayout
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:background="#BDBDBD">
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/stock_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_marginLeft="15dp">
-
-            <android.support.v7.widget.AppCompatCheckBox
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp" />
-
-        </LinearLayout>
+            android:text="SAMSUNG"
+            android:layout_weight="0.1"/>
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#BDBDBD"/>
-
 </LinearLayout>
