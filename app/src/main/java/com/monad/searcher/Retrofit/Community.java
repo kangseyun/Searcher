@@ -9,6 +9,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * Created by x86kernel on 7/22/17.
@@ -17,6 +18,9 @@ import retrofit2.http.POST;
 public interface Community {
     @GET("/board/")
     Call<List<CommunityModel>> getArticles();
+
+    @GET("/board/get/")
+    Call<CommunityModel> getArticle(@Query("n") Integer n, @Query("token") String token);
 
     @FormUrlEncoded
     @POST("/board/post/")

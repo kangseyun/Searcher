@@ -23,6 +23,6 @@ public interface Login {
     @GET("/logout/")
     Call<List<LoginData>> requestLogout(@Query("userToken") String token);
 
-    @GET("/token_check")
+    @GET("/token_check/")
     Call<List<LoginData>> checkInvalidToken(@Query("userToken") String token);
 }

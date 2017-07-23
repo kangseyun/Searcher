@@ -19,6 +19,7 @@ import com.monad.searcher.Adapter.NoticeBoardRecyclerViewAdapter;
 import com.monad.searcher.Model.CommunityModel;
 import com.monad.searcher.Model.IssueModel;
 import com.monad.searcher.Model.LoginData;
+import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.Model.MyData2;
 import com.monad.searcher.R;
 import com.monad.searcher.Retrofit.Community;
@@ -53,13 +54,14 @@ public class MyFragment4 extends Fragment {
         mbtn = (FloatingActionButton) v.findViewById(R.id.fab);
         mContext = getContext();
         setRecyclerView();
+        getArticles(mAdapter, myDataset);
         setBtn();
         return v;
     }
 
     @Override
     public void onResume() {
-        setRecyclerView();
+        getArticles(mAdapter, myDataset);
         super.onResume();
     }
 
@@ -78,34 +80,32 @@ public class MyFragment4 extends Fragment {
         mAdapter = new NoticeBoardRecyclerViewAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
 
-        Callback<List<CommunityModel>> getArticlesCallback = new Callback<List<CommunityModel>>() {
-            @Override
-            public void onResponse(Call<List<CommunityModel>> call, Response<List<CommunityModel>> response) {
-                List<CommunityModel> data = response.body();
-
-                myDataset.clear();
-                for(CommunityModel i : data) {
-                    DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
-
-                    myDataset.add(new MyData2(i.getContent(), i.getUserName(), dateformat.format(i.getCreated())));
-                    mAdapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<CommunityModel>> call, Throwable t) {
-                Log.d("fail", t.getMessage());
-            }
-        };
-
-        getArticles(getArticlesCallback);
-
-
         mAdapter.setOnItemClickListener(new NoticeBoardRecyclerViewAdapter.ClickListener() {
             @Override
-            public void onItemClick(int position, View v) {
-                Intent i = new Intent(getContext(), NoticeViewActivity.class);
-                startActivity(i);
+            public void onItemClick(final int position, View v) {
+                LoginSingleton login = LoginSingleton.getInstance();
+
+                Callback<List<LoginData>> callback = new Callback<List<LoginData>>() {
+                    @Override
+                    public void onResponse(Call<List<LoginData>> call, Response<List<LoginData>> response) {
+                        List<LoginData> data = response.body();
+
+                        String status = data.get(0).getLoginStatus();
+                        if(status.equals("valid_token")) {
+                            Intent i = new Intent(getContext(), NoticeViewActivity.class);
+                            i.putExtra("n", position);
+                            startActivity(i);
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<LoginData>> call, Throwable t) {
+                        Log.d("fail", t.getMessage());
+                    }
+                };
+
+                login.checkInvalidToken(callback);
             }
 
             @Override
@@ -126,7 +126,8 @@ public class MyFragment4 extends Fragment {
         });
     }
 
-    private void getArticles(Callback<List<CommunityModel>> callback) {
+    //private void getArticles(Callback<List<CommunityModel>> callback) {
+    private void getArticles(final NoticeBoardRecyclerViewAdapter mAdapter, ArrayList<MyData2> ViewDataList) {
         Retrofit retrofit;
         Community community;
 
@@ -134,7 +135,24 @@ public class MyFragment4 extends Fragment {
         community = retrofit.create(Community.class);
 
         Call<List<CommunityModel>> load = community.getArticles();
+        load.enqueue(new Callback<List<CommunityModel>>() {
+            @Override
+            public void onResponse(Call<List<CommunityModel>> call, Response<List<CommunityModel>> response) {
+                List<CommunityModel> data = response.body();
 
-        load.enqueue(callback);
+                myDataset.clear();
+                for(CommunityModel i : data) {
+                    DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+
+                    myDataset.add(new MyData2(i.getContent(), i.getUserName(), dateformat.format(i.getCreated())));
+                    mAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<CommunityModel>> call, Throwable t) {
+                Log.d("fail", t.getMessage());
+            }
+        });
     }
 }

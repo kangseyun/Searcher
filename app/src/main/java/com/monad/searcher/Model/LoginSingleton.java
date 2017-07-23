@@ -1,5 +1,6 @@
 package com.monad.searcher.Model;
 
+import android.content.Intent;
 import android.util.Log;
 
 import com.monad.searcher.Retrofit.Login;
@@ -22,13 +23,16 @@ public class LoginSingleton {
     private static LoginSingleton instance;
 
     private LoginSingleton() {
+        this.status = new String();
         Log.d("Singleton Test", "init");
     }
 
+    private String status;
     private String email;
     private String token;
     private String display_name;
 
+    public void setStatus(String status) { this.status = status; }
     public void setEmail(String email) {
         this.email = email;
     }
@@ -36,6 +40,19 @@ public class LoginSingleton {
         this.token = token;
     }
     public void setDisplayName(String displayName) { this.display_name = displayName; }
+
+    public String getStatus() {
+        Log.d("status", status);
+        while(status.equals("")) {
+            try {
+                Thread.sleep(100);
+            } catch (Exception e) {
+
+            }
+        }
+
+        return status;
+    }
 
     public String getEmail() {
         return email;
@@ -101,28 +118,17 @@ public class LoginSingleton {
         });
     }
 
-    public void checkInvalidToken() {
+    public void checkInvalidToken(final Callback<List<LoginData>> callback) {
         Retrofit retrofit;
         Login checkToken;
-
-        if(token == null) {
-            return;
-        }
 
         retrofit = RetrofitService.getInstnace();
         checkToken = retrofit.create(Login.class);
 
-        Call<List<LoginData>> load = checkToken.checkInvalidToken(this.getToken());
-        load.enqueue(new Callback<List<LoginData>>() {
-            @Override
-            public void onResponse(Call<List<LoginData>> call, Response<List<LoginData>> response) {
-                List<LoginData> data = response.body();
-            }
+        setStatus("");
 
-            @Override
-            public void onFailure(Call<List<LoginData>> call, Throwable t) {
-                Log.d("fail", t.getMessage());
-            }
-        });
+        Call<List<LoginData>> load = checkToken.checkInvalidToken(this.getToken());
+
+        load.enqueue(callback);
     }
 }
