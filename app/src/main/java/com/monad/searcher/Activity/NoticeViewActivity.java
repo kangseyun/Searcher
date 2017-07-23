@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.monad.searcher.Adapter.PagerAdapter;
 import com.monad.searcher.Model.CommunityModel;
+import com.monad.searcher.Model.LoginData;
 import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.R;
 import com.monad.searcher.Retrofit.Community;

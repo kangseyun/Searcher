@@ -14,7 +14,15 @@ import android.widget.TextView;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.monad.searcher.Adapter.PagerAdapter;
+import com.monad.searcher.Model.LoginData;
+import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.R;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, ViewPager.OnPageChangeListener {
     private Toolbar toolbar;
@@ -30,6 +38,45 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         FirebaseMessaging.getInstance().subscribeToTopic("news");
         FirebaseInstanceId.getInstance().getToken();
         init();
+
+        Thread checkTokenThread = new Thread() {
+            LoginSingleton login = LoginSingleton.getInstance();
+
+            Callback<LoginData> callback = new Callback<LoginData>() {
+                @Override
+                public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+                    LoginData data = response.body();
+                    if(data.getLoginStatus().equals("invalid_token")) {
+                        if(LoginActivity.active == false) {
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            intent.putExtra("code", 254);
+                            startActivity(intent);
+                        }
+                    } else{
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<LoginData> call, Throwable t) {
+
+                }
+
+            };
+
+            @Override
+            public void run() {
+                while(true) {
+                    login.checkInvalidToken(callback);
+                    try {
+                        Thread.sleep(60000);
+                    } catch(Exception e) {
+
+                    }
+                }
+            }
+        };
+
+        checkTokenThread.start();
     }
 
     void init() {

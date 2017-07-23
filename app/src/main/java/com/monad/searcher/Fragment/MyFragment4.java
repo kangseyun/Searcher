@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.monad.searcher.Activity.LoginActivity;
 import com.monad.searcher.Activity.NoticeBoardActivity;
 import com.monad.searcher.Activity.NoticeViewActivity;
 import com.monad.searcher.Adapter.NoticeBoardRecyclerViewAdapter;
@@ -53,15 +54,16 @@ public class MyFragment4 extends Fragment {
         mRecyclerView = (RecyclerView) v.findViewById(R.id.notice_board);
         mbtn = (FloatingActionButton) v.findViewById(R.id.fab);
         mContext = getContext();
+
         setRecyclerView();
-        getArticles(mAdapter, myDataset);
         setBtn();
+
         return v;
     }
 
     @Override
     public void onResume() {
-        getArticles(mAdapter, myDataset);
+        getArticles(mAdapter);
         super.onResume();
     }
 
@@ -127,7 +129,7 @@ public class MyFragment4 extends Fragment {
     }
 
     //private void getArticles(Callback<List<CommunityModel>> callback) {
-    private void getArticles(final NoticeBoardRecyclerViewAdapter mAdapter, ArrayList<MyData2> ViewDataList) {
+    private void getArticles(final NoticeBoardRecyclerViewAdapter mAdapter) {
         Retrofit retrofit;
         Community community;
 

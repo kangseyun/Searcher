@@ -14,11 +14,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.monad.searcher.Activity.ConditionStockActivity;
+import com.monad.searcher.Activity.LoginActivity;
 import com.monad.searcher.Adapter.Fragment2Adapter;
 import com.monad.searcher.Model.Fragment2Model;
+import com.monad.searcher.Model.LoginData;
+import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.R;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MyFragment2 extends Fragment {
     private View v;
@@ -37,6 +44,35 @@ public class MyFragment2 extends Fragment {
         setRecyclerView();
         setSpinner();
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        /*
+        LoginSingleton login = LoginSingleton.getInstance();
+
+        Callback<LoginData> callback = new Callback<LoginData>() {
+            @Override
+            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+                LoginData data = response.body();
+                if(data.getLoginStatus().equals("invalid_token")) {
+                    Intent intent = new Intent(getContext(), LoginActivity.class);
+                    intent.putExtra("code", 254);
+                    startActivity(intent);
+                } else{
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginData> call, Throwable t) {
+
+            }
+
+        };
+
+        login.checkInvalidToken(callback);
+        */
+        super.onResume();
     }
 
     private void setSpinner() {

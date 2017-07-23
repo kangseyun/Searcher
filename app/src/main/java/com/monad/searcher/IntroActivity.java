@@ -47,6 +47,7 @@ public class IntroActivity extends AppCompatActivity {
                     finish();
                 }
             }, 2000);
+
         } else {
             LoginSingleton login = LoginSingleton.getInstance();
             login.setToken(data.get(0).getToken());
@@ -70,6 +71,7 @@ public class IntroActivity extends AppCompatActivity {
                                 finish();
                             }
                         }, 2000);
+
                     }
                     else {
                         Handler handler = new Handler();
@@ -84,6 +86,7 @@ public class IntroActivity extends AppCompatActivity {
                                 finish();
                             }
                         }, 2000);
+
                     }
                 }
 

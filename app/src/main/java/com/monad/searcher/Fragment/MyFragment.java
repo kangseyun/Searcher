@@ -1,5 +1,6 @@
 package com.monad.searcher.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.monad.searcher.Activity.LoginActivity;
 import com.monad.searcher.Model.BasicStockModel;
 import com.monad.searcher.Model.IssueModel;
+import com.monad.searcher.Model.LoginData;
+import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.R;
 import com.monad.searcher.Retrofit.BasicStock;
 import com.monad.searcher.Retrofit.IssueRetrofit;
@@ -47,6 +51,36 @@ public class MyFragment extends Fragment {
         getNasdaq();
 
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        /*
+        LoginSingleton login = LoginSingleton.getInstance();
+
+        Callback<LoginData> callback = new Callback<LoginData>() {
+            @Override
+            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+                LoginData data = response.body();
+                if(data.getLoginStatus().equals("invalid_token")) {
+                    Intent intent = new Intent(getContext(), LoginActivity.class);
+                    intent.putExtra("code", 254);
+                    startActivity(intent);
+                } else{
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginData> call, Throwable t) {
+
+            }
+
+        };
+
+        login.checkInvalidToken(callback);
+        */
+        super.onResume();
+
     }
 
     private void getKospi() {

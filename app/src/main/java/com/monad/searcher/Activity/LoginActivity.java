@@ -49,6 +49,8 @@ public class LoginActivity extends AppCompatActivity implements
     private static final String TAG = "LoginActivity";
     private static final int RC_SIGN_IN = 007;
 
+    static boolean active = false;
+
     private GoogleApiClient mGoogleApiClient;
     private TextView mStatusTextView;
     private ProgressDialog mProgressDialog;
@@ -82,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements
         Intent intent = getIntent();
         Integer code = intent.getIntExtra("code", 0);
 
-        if(code == 255)
+        if(code != 0)
             Toast.makeText(this, "로그인이 먼저 필요합니다", Toast.LENGTH_SHORT).show();
 
     }
@@ -106,7 +108,11 @@ public class LoginActivity extends AppCompatActivity implements
 
                         RealmManager.CreateLoginDao().remove(data.get(0));
 
-                        updateUI(false);
+                       // updateUI(false);
+
+                        finishAffinity();
+                        android.os.Process.killProcess(android.os.Process.myPid());
+                        System.exit(0);
                     }
                 });
     }
@@ -131,7 +137,6 @@ public class LoginActivity extends AppCompatActivity implements
 
                 finish();
             }
-
 
             updateUI(true);
         } else {
@@ -164,6 +169,7 @@ public class LoginActivity extends AppCompatActivity implements
     @Override
     public void onStart() {
         super.onStart();
+        active = true;
 
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
         if (opr.isDone()) {
@@ -171,7 +177,7 @@ public class LoginActivity extends AppCompatActivity implements
             GoogleSignInResult result = opr.get();
             handleSignInResult(result);
         } else {
-            showProgressDialog();
+  //          showProgressDialog();
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
                 public void onResult(GoogleSignInResult googleSignInResult) {
@@ -180,6 +186,12 @@ public class LoginActivity extends AppCompatActivity implements
                 }
             });
         }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        active = false;
     }
 
     @Override

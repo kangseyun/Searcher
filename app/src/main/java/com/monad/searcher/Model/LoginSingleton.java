@@ -130,7 +130,6 @@ public class LoginSingleton {
         checkToken = retrofit.create(Login.class);
 
         setStatus("");
-
         Call<LoginData> load = checkToken.checkInvalidToken(this.getToken());
 
         load.enqueue(callback);
