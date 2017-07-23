@@ -4,11 +4,17 @@ import android.util.Log;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by x86kernel on 7/21/17.
  */
 
-public class LoginData {
+public class LoginData extends RealmObject {
+    @PrimaryKey
+    private long id;
+
     @SerializedName("status")
     private String status;
 

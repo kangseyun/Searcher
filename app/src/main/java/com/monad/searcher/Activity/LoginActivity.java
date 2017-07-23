@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -19,14 +20,18 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.monad.searcher.IntroActivity;
 import com.monad.searcher.Model.LoginData;
 import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.R;
 import com.monad.searcher.Retrofit.Login;
+import com.monad.searcher.Util.RealmManager;
 import com.monad.searcher.Util.RetrofitService;
 
 import java.util.List;
 
+import io.realm.RealmObject;
+import io.realm.RealmResults;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -74,6 +79,12 @@ public class LoginActivity extends AppCompatActivity implements
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         signInButton.setScopes(gso.getScopeArray());
 
+        Intent intent = getIntent();
+        Integer code = intent.getIntExtra("code", 0);
+
+        if(code == 255)
+            Toast.makeText(this, "로그인이 먼저 필요합니다", Toast.LENGTH_SHORT).show();
+
     }
 
     private void signIn() {
@@ -88,6 +99,12 @@ public class LoginActivity extends AppCompatActivity implements
                     public void onResult(Status status) {
                         login = LoginSingleton.getInstance();
                         login.requestLogout();
+
+                        RealmManager.open();
+                        RealmResults<LoginData> result = RealmManager.CreateLoginDao().loadAll();
+                        List<LoginData> data = result;
+
+                        RealmManager.CreateLoginDao().remove(data.get(0));
 
                         updateUI(false);
                     }
@@ -104,6 +121,17 @@ public class LoginActivity extends AppCompatActivity implements
             login = LoginSingleton.getInstance();
             login.setDisplayName(acct.getDisplayName());
             login.requestLogin(acct.getEmail());
+
+            Intent intent = getIntent();
+            Integer code = intent.getIntExtra("code", 0);
+
+            if(code == 255) {
+                Intent newIntent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(newIntent);
+
+                finish();
+            }
+
 
             updateUI(true);
         } else {

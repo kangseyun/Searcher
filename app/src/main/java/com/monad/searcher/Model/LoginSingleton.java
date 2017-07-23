@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.monad.searcher.Retrofit.Login;
+import com.monad.searcher.Util.RealmManager;
 import com.monad.searcher.Util.RetrofitService;
 
 import java.util.List;
 
+import io.realm.RealmObject;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -75,20 +77,23 @@ public class LoginSingleton {
         retrofit = RetrofitService.getInstnace();
         login = retrofit.create(Login.class);
 
-        Call<List<LoginData>> load = login.requestLogin(email, display_name);
+        Call<LoginData> load = login.requestLogin(email, display_name);
 
-        load.enqueue(new Callback<List<LoginData>>() {
+        load.enqueue(new Callback<LoginData>() {
             @Override
-            public void onResponse(Call<List<LoginData>> call, Response<List<LoginData>> response) {
-                List<LoginData> data = response.body();
+            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+                LoginData data = response.body();
 
-                setEmail(data.get(0).getEmail());
-                setToken(data.get(0).getToken());
+                setEmail(data.getEmail());
+                setToken(data.getToken());
+
+                RealmManager.open();
+                RealmManager.CreateLoginDao().save(data);
             }
 
             @Override
-            public void onFailure(Call<List<LoginData>> call, Throwable t) {
-                Log.d("fail", t.getMessage());
+            public void onFailure(Call<LoginData> call, Throwable t) {
+                //Log.d("fail", t.getMessage());
             }
         });
     }
@@ -104,21 +109,20 @@ public class LoginSingleton {
         retrofit = RetrofitService.getInstnace();
         logout = retrofit.create(Login.class);
 
-        Call<List<LoginData>> load = logout.requestLogout(this.getToken());
-        load.enqueue(new Callback<List<LoginData>>() {
+        Call<LoginData> load = logout.requestLogout(this.getToken());
+        load.enqueue(new Callback<LoginData>() {
             @Override
-            public void onResponse(Call<List<LoginData>> call, Response<List<LoginData>> response) {
-                List<LoginData> data = response.body();
+            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
             }
 
             @Override
-            public void onFailure(Call<List<LoginData>> call, Throwable t) {
+            public void onFailure(Call<LoginData> call, Throwable t) {
                 Log.d("fail", t.getMessage());
             }
         });
     }
 
-    public void checkInvalidToken(final Callback<List<LoginData>> callback) {
+    public void checkInvalidToken(final Callback<LoginData> callback) {
         Retrofit retrofit;
         Login checkToken;
 
@@ -127,7 +131,7 @@ public class LoginSingleton {
 
         setStatus("");
 
-        Call<List<LoginData>> load = checkToken.checkInvalidToken(this.getToken());
+        Call<LoginData> load = checkToken.checkInvalidToken(this.getToken());
 
         load.enqueue(callback);
     }

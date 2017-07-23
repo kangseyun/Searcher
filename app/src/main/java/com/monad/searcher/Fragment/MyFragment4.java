@@ -85,12 +85,12 @@ public class MyFragment4 extends Fragment {
             public void onItemClick(final int position, View v) {
                 LoginSingleton login = LoginSingleton.getInstance();
 
-                Callback<List<LoginData>> callback = new Callback<List<LoginData>>() {
+                Callback<LoginData> callback = new Callback<LoginData>() {
                     @Override
-                    public void onResponse(Call<List<LoginData>> call, Response<List<LoginData>> response) {
-                        List<LoginData> data = response.body();
+                    public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+                        LoginData data = response.body();
 
-                        String status = data.get(0).getLoginStatus();
+                        String status = data.getLoginStatus();
                         if(status.equals("valid_token")) {
                             Intent i = new Intent(getContext(), NoticeViewActivity.class);
                             i.putExtra("n", position);
@@ -100,7 +100,7 @@ public class MyFragment4 extends Fragment {
                     }
 
                     @Override
-                    public void onFailure(Call<List<LoginData>> call, Throwable t) {
+                    public void onFailure(Call<LoginData> call, Throwable t) {
                         Log.d("fail", t.getMessage());
                     }
                 };

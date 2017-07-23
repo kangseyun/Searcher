@@ -18,11 +18,11 @@ import retrofit2.http.Query;
 public interface Login {
     @FormUrlEncoded
     @POST("/login/")
-    Call<List<LoginData>> requestLogin(@Field("userEmail") String email, @Field("userDisplayName") String displayName);
+    Call<LoginData> requestLogin(@Field("userEmail") String email, @Field("userDisplayName") String displayName);
 
     @GET("/logout/")
-    Call<List<LoginData>> requestLogout(@Query("userToken") String token);
+    Call<LoginData> requestLogout(@Query("userToken") String token);
 
     @GET("/token_check/")
-    Call<List<LoginData>> checkInvalidToken(@Query("userToken") String token);
+    Call<LoginData> checkInvalidToken(@Query("userToken") String token);
 }
