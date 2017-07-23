@@ -58,18 +58,4 @@ public class MyFragment3 extends Fragment {
         myDataset.add(new MyData("삼성전자", "13.78" , "-7.36%"));
         myDataset.add(new MyData("LG화학", "3.21" , "+7.49%"));
     }
-
-    private void setColor()
-    {
-        switch (mMydata.setProperty()) {
-            case 0:
-                mImage.setImageDrawable(getResources().getDrawable(R.drawable.uparrow));
-                break;
-            case 1:
-                mImage.setImageDrawable(getResources().getDrawable(R.drawable.downarrow));
-                break;
-            default:
-                break;
-        }
-    }
 }

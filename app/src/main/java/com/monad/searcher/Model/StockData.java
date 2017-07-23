@@ -1,8 +1,9 @@
 package com.monad.searcher.Model;
 
-/**
- * Created by Dong Ju on 2017-07-23.
- */
-
 public class StockData {
+    public String stock_name;
+
+    public StockData(String stock_name) {
+        this.stock_name = stock_name;
+    }
 }

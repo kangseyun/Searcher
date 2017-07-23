@@ -28,7 +28,6 @@ public class MyFragment2 extends Fragment {
     private ArrayList<Fragment2Model> myDataset;
     private Spinner spinner;
     private ArrayList<String> test = new ArrayList<>();
-    private Fragment2Adapter mmodel;
 
     @Nullable
     @Override

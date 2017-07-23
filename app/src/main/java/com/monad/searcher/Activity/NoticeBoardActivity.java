@@ -13,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.monad.searcher.Model.CommunityModel;
-import com.monad.searcher.Model.IssueModel;
-import com.monad.searcher.Model.LoginData;
 import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.R;
 import com.monad.searcher.Retrofit.Community;
@@ -26,8 +24,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-
-import static com.monad.searcher.Util.RetrofitService.getInstnace;
 
 public class NoticeBoardActivity extends AppCompatActivity {
     private Button mWrite;

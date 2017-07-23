@@ -8,13 +8,4 @@ public class MyData {
         this.KOSPI = KOSPI;
         this.KOSDAQ = KOSDAQ;
     }
-
-    public int setProperty()
-    {
-        if(Double.parseDouble(KOSPI)>0)
-        {
-            return 0;
-        }
-        else return 1;
-    }
 }
