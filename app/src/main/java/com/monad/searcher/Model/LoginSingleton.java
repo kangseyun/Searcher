@@ -7,15 +7,11 @@ import com.monad.searcher.Retrofit.Login;
 import com.monad.searcher.Util.RealmManager;
 import com.monad.searcher.Util.RetrofitService;
 
-import java.util.List;
-
-import io.realm.RealmObject;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-import static com.monad.searcher.R.id.login;
 
 /**
  * Created by x86kernel on 7/21/17.

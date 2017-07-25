@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/searcher_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IntroActivity">
+        <activity android:name=".IntroActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
