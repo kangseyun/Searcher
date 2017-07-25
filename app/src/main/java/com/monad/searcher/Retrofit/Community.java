@@ -25,4 +25,7 @@ public interface Community {
     @FormUrlEncoded
     @POST("/board/post/")
     Call<List<CommunityModel>> postArticles(@Field("subject") String subject, @Field("content") String content, @Field("token") String token);
+
+    @GET("/board/delete/")
+    Call<CommunityModel> deleteArticle(@Query("n") Integer n, @Query("token") String token);
 }

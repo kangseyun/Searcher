@@ -9,6 +9,8 @@ import java.util.Date;
 public class CommunityModel {
     private int id;
 
+    private String status;
+
     private String subject;
     private String content;
     private String user_name;
@@ -23,6 +25,7 @@ public class CommunityModel {
         this.id = id;
     }
 
+    public String getStatus() { return status; }
     public String getSubject() { return subject; }
     public String getContent() { return content; }
     public String getUserName() { return user_name; };
