@@ -1,12 +1,15 @@
 package com.monad.searcher.Activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,12 +28,17 @@ public class ConditionStockActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ImageView setting;
     private TextView title;
+    private Button mnotice_on, mnotice_off;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_condition_stock);
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_stock);
+        mnotice_on = (Button) findViewById(R.id.notice_on);
+        mnotice_off = (Button) findViewById(R.id.notice_off);
         setRecyclerView();
+        setNoticeOn();
+        setNoticeOff();
         setToolbar();
     }
 
@@ -70,6 +78,51 @@ public class ConditionStockActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(ConditionStockActivity.this, SettingActivity.class);
                 startActivity(i);
+            }
+        });
+    }
+
+    private void setNoticeOn() {
+        mnotice_on.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(ConditionStockActivity.this);
+
+                alert.setTitle("알림을 받으시겠습니까?");
+                alert.setMessage(getString(R.string.notice_on));
+
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                    }
+                });
+                alert.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                    }
+                });
+                alert.show();
+            }
+        });
+    }
+
+    private void setNoticeOff()
+    {
+        mnotice_off.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(ConditionStockActivity.this);
+
+                alert.setTitle("알림을 끄시겠습니까?");
+                alert.setMessage(getString(R.string.notice_off));
+
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                    }
+                });
+                alert.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                    }
+                });
+                alert.show();
             }
         });
     }
