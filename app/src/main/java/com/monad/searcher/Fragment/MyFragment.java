@@ -29,7 +29,7 @@ import retrofit2.Retrofit;
 
 public class MyFragment extends Fragment {
     private View v;
-    private TextView kospi, kosdaq, dji, nasdaq;
+    private TextView kospi, kosdaq, dji, nasdaq, issue;
     private Retrofit retrofit;
     private BasicStock basicStock;
     private IssueRetrofit issueRetrofit;
@@ -158,6 +158,12 @@ public class MyFragment extends Fragment {
             @Override
             public void onResponse(Call<List<IssueModel>> call, Response<List<IssueModel>> response) {
                 List<IssueModel> data = response.body();
+
+                if (data.size() == 0) {
+
+                } else {
+                    issue.setText(data.get(0).getContent());
+                }
                 //Log.i("data", data.get(0).getSubject());
             }
 
@@ -173,5 +179,7 @@ public class MyFragment extends Fragment {
         kosdaq = (TextView) v.findViewById(R.id.kosdaq_point);
         dji = (TextView) v.findViewById(R.id.dji_point);
         nasdaq = (TextView) v.findViewById(R.id.nasdqa_point);
+        issue = (TextView) v.findViewById(R.id.issue_content);
     }
+
 }

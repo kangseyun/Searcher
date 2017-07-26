@@ -169,22 +169,29 @@
                         android:layout_height="match_parent" />
                 </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginBottom="20dp"
-                android:background="#607D8B"
-                android:layout_width="match_parent"
-                android:layout_height="130dp">
-                <TextView
-                    android:paddingTop="3dp"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:textColor="#FFF"
-                    android:gravity="center"
-                    android:text="오늘의 이슈"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical"
+                android:background="#607D8B">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:text="오늘의 이슈"
+                    android:textColor="#FFF"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/issue_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
@@ -207,7 +214,9 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"></LinearLayout>
+                    android:layout_height="60dp">
+
+                </LinearLayout>
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
