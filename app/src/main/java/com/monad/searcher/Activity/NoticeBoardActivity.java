@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.monad.searcher.Model.CommunityModel;
 import com.monad.searcher.Model.LoginSingleton;
@@ -56,7 +57,6 @@ public class NoticeBoardActivity extends AppCompatActivity {
                 String contentString = contents.getText().toString();
 
                 postArticle(titleString, contentString);
-                finish();
             }
         });
     }
@@ -96,17 +96,17 @@ public class NoticeBoardActivity extends AppCompatActivity {
         retrofit = RetrofitService.getInstnace();
         community = retrofit.create(Community.class);
 
-        Call<List<CommunityModel>> load = community.postArticles(title, content, login.getToken());
+        Call<CommunityModel> load = community.postArticles(title, content, login.getToken());
 
-        load.enqueue(new Callback<List<CommunityModel>>() {
+        load.enqueue(new Callback<CommunityModel>() {
             @Override
-            public void onResponse(Call<List<CommunityModel>> call, Response<List<CommunityModel>> response) {
-
+            public void onResponse(Call<CommunityModel> call, Response<CommunityModel> response) {
+                finish();
             }
 
             @Override
-            public void onFailure(Call<List<CommunityModel>> call, Throwable t) {
-                Log.d("fail", t.getMessage());
+            public void onFailure(Call<CommunityModel> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), R.string.postArticle_failed, Toast.LENGTH_SHORT).show();
             }
         });
 

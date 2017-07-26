@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity implements
         Integer code = intent.getIntExtra("code", 0);
 
         if(code != 0)
-            Toast.makeText(this, "로그인이 먼저 필요합니다", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.required_login, Toast.LENGTH_SHORT).show();
 
     }
 
@@ -108,8 +108,6 @@ public class LoginActivity extends AppCompatActivity implements
 
                         RealmManager.CreateLoginDao().remove(data.get(0));
 
-                       // updateUI(false);
-
                         finishAffinity();
                         android.os.Process.killProcess(android.os.Process.myPid());
                         System.exit(0);
@@ -131,12 +129,14 @@ public class LoginActivity extends AppCompatActivity implements
             Intent intent = getIntent();
             Integer code = intent.getIntExtra("code", 0);
 
-            if(code == 255) {
+            if(code.equals(255)) {
                 Intent newIntent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(newIntent);
 
-                finish();
             }
+
+            if(!code.equals(0))
+                finish();
 
             updateUI(true);
         } else {

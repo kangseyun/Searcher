@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Searcher</string>
+    <string name="app_name_ontab">써처</string>
     <string name="server_client_id">287943246378-kotu3pkobscgordbajtfrjv7gr95ee0l.apps.googleusercontent.com</string>
     <string name="signed_in_fmt">Signed in as: %s</string>
     <string name="signed_out">Signed out</string>
@@ -9,8 +10,13 @@
     <string name="sign_out">Sign Out</string>
     <string name="disconnect">Disconnect</string>
 
+    <string name="required_login">로그인이 필요합니다</string>
+
+    <string name="postArticle_failed">글 쓰기 오류</string>
+
     <string name="deleteDialog_title">삭제</string>
     <string name="deleteDialog_content">글을 삭제 하시겠습니까?</string>
     <string name="deleteDialog_ok">삭제</string>
     <string name="deleteDialog_cancel">취소</string>
+    <string name="deleteArticle_success">삭제 되었습니다</string>
 </resources>

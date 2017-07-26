@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.monad.searcher.Adapter.PagerAdapter;
 import com.monad.searcher.Model.CommunityModel;
@@ -29,6 +30,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+
+import static java.security.AccessController.getContext;
 
 
 public class NoticeViewActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, View.OnClickListener {
@@ -56,9 +59,16 @@ public class NoticeViewActivity extends AppCompatActivity implements ViewPager.O
         index = intent.getIntExtra("n", -1);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
         builder.setPositiveButton(R.string.deleteDialog_ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 deleteArticle(index);
+            }
+        });
+
+        builder.setNegativeButton(R.string.deleteDialog_cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                return;
             }
         });
 
@@ -71,7 +81,6 @@ public class NoticeViewActivity extends AppCompatActivity implements ViewPager.O
         deleteButton = (Button)findViewById(R.id.btn_deleteArticle);
 
         deleteButton.setOnClickListener(this);
-
 
         getArticle(index);
     }
@@ -89,7 +98,7 @@ public class NoticeViewActivity extends AppCompatActivity implements ViewPager.O
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         title = (TextView) findViewById(R.id.toolbar_title);
         setting = (ImageView) findViewById(R.id.setting);
-        title.setText("써처");
+        title.setText(R.string.app_name_ontab);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -184,6 +193,8 @@ public class NoticeViewActivity extends AppCompatActivity implements ViewPager.O
             @Override
             public void onResponse(Call<CommunityModel> call, Response<CommunityModel> response) {
                 if(response.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), R.string.deleteArticle_success, Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
 

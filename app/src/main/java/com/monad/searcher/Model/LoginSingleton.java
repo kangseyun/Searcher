@@ -22,7 +22,6 @@ public class LoginSingleton {
 
     private LoginSingleton() {
         this.status = new String();
-        Log.d("Singleton Test", "init");
     }
 
     private String status;
@@ -40,7 +39,6 @@ public class LoginSingleton {
     public void setDisplayName(String displayName) { this.display_name = displayName; }
 
     public String getStatus() {
-        Log.d("status", status);
         while(status.equals("")) {
             try {
                 Thread.sleep(100);

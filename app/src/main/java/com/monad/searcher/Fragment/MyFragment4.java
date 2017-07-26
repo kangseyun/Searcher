@@ -128,7 +128,6 @@ public class MyFragment4 extends Fragment {
         });
     }
 
-    //private void getArticles(Callback<List<CommunityModel>> callback) {
     private void getArticles(final NoticeBoardRecyclerViewAdapter mAdapter) {
         Retrofit retrofit;
         Community community;
@@ -143,12 +142,14 @@ public class MyFragment4 extends Fragment {
                 List<CommunityModel> data = response.body();
 
                 myDataset.clear();
+
                 for(CommunityModel i : data) {
                     DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
 
                     myDataset.add(new MyData2(i.getContent(), i.getUserName(), dateformat.format(i.getCreated())));
-                    mAdapter.notifyDataSetChanged();
                 }
+
+                mAdapter.notifyDataSetChanged();
             }
 
             @Override

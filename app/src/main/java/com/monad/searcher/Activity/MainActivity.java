@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 @Override
                 public void onResponse(Call<LoginData> call, Response<LoginData> response) {
                     LoginData data = response.body();
+
                     if(data.getLoginStatus().equals("invalid_token")) {
                         if(LoginActivity.active == false) {
                             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -111,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         title = (TextView) findViewById(R.id.toolbar_title);
         setting = (ImageView) findViewById(R.id.setting);
-        title.setText("써처");
+        title.setText(R.string.app_name_ontab);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

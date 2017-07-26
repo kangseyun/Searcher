@@ -17,11 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.MainActivity" />
-        <activity android:name=".Activity.AuthActivity" />
-        <activity android:name=".Activity.LoginActivity" />
-        <activity android:name=".Activity.SettingActivity" />
-        <activity android:name=".Activity.NoticeBoardActivity" />
+        <activity android:name=".Activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.AuthActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.NoticeBoardActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".Util.MyFirebaseMessagingService">
             <intent-filter>
