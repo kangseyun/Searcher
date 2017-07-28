@@ -16,16 +16,22 @@ import android.widget.Spinner;
 import com.monad.searcher.Activity.ConditionStockActivity;
 import com.monad.searcher.Activity.LoginActivity;
 import com.monad.searcher.Adapter.Fragment2Adapter;
+import com.monad.searcher.Model.BasicStockModel;
+import com.monad.searcher.Model.ConditionModel;
 import com.monad.searcher.Model.Fragment2Model;
 import com.monad.searcher.Model.LoginData;
 import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.R;
+import com.monad.searcher.Retrofit.Condition;
+import com.monad.searcher.Util.RetrofitService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class MyFragment2 extends Fragment {
     private View v;
@@ -33,8 +39,9 @@ public class MyFragment2 extends Fragment {
     private Fragment2Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<Fragment2Model> myDataset;
-    private Spinner spinner;
-    private ArrayList<String> test = new ArrayList<>();
+    private Retrofit retrofit;
+    private Condition condition;
+
 
     @Nullable
     @Override
@@ -42,7 +49,6 @@ public class MyFragment2 extends Fragment {
         v = inflater.inflate(R.layout.fragment_2, container, false);
         mRecyclerView = (RecyclerView) v.findViewById(R.id.fragment2_recycler);
         setRecyclerView();
-        setSpinner();
         return v;
     }
 
@@ -74,21 +80,31 @@ public class MyFragment2 extends Fragment {
         */
         super.onResume();
     }
+    private void getData() {
+        retrofit = RetrofitService.getInstnace();
+        condition = retrofit.create(Condition.class);
+        Call<List<ConditionModel>> load = condition.getCondition();
 
-    private void setSpinner() {
-        test.add("조건식1");
-        test.add("조건식2");
-        spinner = (Spinner) v.findViewById(R.id.spinner);
-        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.spin, test);
-        spinner.setAdapter(adapter);
+        load.enqueue(new Callback<List<ConditionModel>>() {
+            @Override
+            public void onResponse(Call<List<ConditionModel>> call, Response<List<ConditionModel>> response) {
+                List<ConditionModel> data = response.body();
+                for(ConditionModel obj : data) {
+                    myDataset.add(new Fragment2Model(obj.getId(), obj.getSubject()));
+                }
+
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<List<ConditionModel>> call, Throwable t) {
+                Log.i("fail",t.getMessage());
+            }
+        });
     }
 
     private void setRecyclerView()
     {
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-
-
         mRecyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
@@ -99,9 +115,6 @@ public class MyFragment2 extends Fragment {
         myDataset = new ArrayList<>();
         mAdapter = new Fragment2Adapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
-
-        myDataset.add(new Fragment2Model(1, "13.78"));
-        myDataset.add(new Fragment2Model(1, "3.21"));
 
         mAdapter.setOnItemClickListener(new Fragment2Adapter.ClickListener() {
             @Override
@@ -116,10 +129,5 @@ public class MyFragment2 extends Fragment {
 
             }
         });
-    }
-
-    private void setStock()
-    {
-
     }
 }

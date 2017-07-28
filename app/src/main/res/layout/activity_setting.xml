@@ -43,29 +43,6 @@
         android:paddingLeft="16dp"
         android:paddingBottom="12dp"
         android:layout_height="wrap_content" />
-
-    <LinearLayout
-        android:id="@+id/setting_level"
-        android:clickable="true"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:paddingTop="17dp"
-        android:paddingLeft="16dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:textColor="#333"
-            android:textSize="16sp"
-            android:text="로그아웃"
-            android:fontFamily="sans-serif"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_width="match_parent"
-            android:textSize="14sp"
-            android:text="계정을 로그아웃합니다."
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"/>
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0.8dp"
@@ -104,7 +81,7 @@
         android:paddingTop="16dp"
         android:paddingLeft="16dp">
         <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/setting_screenword_checkbox"
+            android:id="@+id/push_checkbox"
             android:layout_width="72dp"
             android:layout_height="wrap_content"/>
         <LinearLayout

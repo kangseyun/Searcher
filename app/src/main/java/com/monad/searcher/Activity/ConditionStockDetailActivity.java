@@ -17,8 +17,6 @@ import android.widget.TextView;
 
 import com.monad.searcher.Adapter.StockRecyclerViewAdapter;
 import com.monad.searcher.Model.ConditionDetailModel;
-import com.monad.searcher.Model.ConditionModel;
-import com.monad.searcher.Model.Fragment2Model;
 import com.monad.searcher.Model.StockData;
 import com.monad.searcher.R;
 import com.monad.searcher.Retrofit.ConditionDetail;
@@ -32,7 +30,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class ConditionStockActivity extends AppCompatActivity {
+public class ConditionStockDetailActivity extends AppCompatActivity {
 
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -94,7 +92,7 @@ public class ConditionStockActivity extends AppCompatActivity {
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ConditionStockActivity.this, SettingActivity.class);
+                Intent i = new Intent(ConditionStockDetailActivity.this, SettingActivity.class);
                 startActivity(i);
             }
         });
@@ -104,7 +102,7 @@ public class ConditionStockActivity extends AppCompatActivity {
         mnotice_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder alert = new AlertDialog.Builder(ConditionStockActivity.this);
+                AlertDialog.Builder alert = new AlertDialog.Builder(ConditionStockDetailActivity.this);
 
                 alert.setTitle("알림을 받으시겠습니까?");
                 alert.setMessage(getString(R.string.notice_on));
@@ -160,7 +158,7 @@ public class ConditionStockActivity extends AppCompatActivity {
         mnotice_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder alert = new AlertDialog.Builder(ConditionStockActivity.this);
+                AlertDialog.Builder alert = new AlertDialog.Builder(ConditionStockDetailActivity.this);
 
                 alert.setTitle("알림을 끄시겠습니까?");
                 alert.setMessage(getString(R.string.notice_off));
