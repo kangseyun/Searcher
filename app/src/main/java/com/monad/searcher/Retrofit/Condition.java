@@ -13,6 +13,6 @@ import retrofit2.http.GET;
  */
 
 public interface Condition {
-    @GET("/Condition/")
+    @GET("/condition/get/")
     Call<List<ConditionModel>> getCondition();
 }
