@@ -90,9 +90,8 @@ public class MyFragment2 extends Fragment {
             public void onResponse(Call<List<ConditionModel>> call, Response<List<ConditionModel>> response) {
                 List<ConditionModel> data = response.body();
                 for(ConditionModel obj : data) {
-                    myDataset.add(new Fragment2Model(obj.getId(), obj.getSubject()));
+                    myDataset.add(new Fragment2Model(1, obj.getSubject()));
                 }
-
                 mAdapter.notifyDataSetChanged();
             }
 
@@ -115,6 +114,7 @@ public class MyFragment2 extends Fragment {
         myDataset = new ArrayList<>();
         mAdapter = new Fragment2Adapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
+        myDataset.add(new Fragment2Model(1, "1ㅂ3"));
 
         mAdapter.setOnItemClickListener(new Fragment2Adapter.ClickListener() {
             @Override

@@ -34,7 +34,7 @@ import retrofit2.Retrofit;
 
 public class ConditionStockActivity extends AppCompatActivity {
 
-    private RecyclerView.Adapter mAdapter;
+    private StockRecyclerViewAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private RecyclerView mRecyclerView;
     private ArrayList<StockData> myDataset;
@@ -50,7 +50,7 @@ public class ConditionStockActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_condition_stock);
 
-        getData();
+        //getData();
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_stock);
         mnotice_on = (Button) findViewById(R.id.notice_on);
         mnotice_off = (Button) findViewById(R.id.notice_off);
@@ -80,6 +80,20 @@ public class ConditionStockActivity extends AppCompatActivity {
         myDataset.add(new StockData("한화","+18.24%"));
         myDataset.add(new StockData("기아","+13.93%"));
         myDataset.add(new StockData("애플","+9.43%"));
+
+        mAdapter.setOnItemClickListener(new StockRecyclerViewAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                Intent i = new Intent(getApplicationContext(), ConditionStockDetailActivity.class);
+                startActivity(i);
+            }
+
+            @Override
+            public void onItemLongClick(int position, View v) {
+
+            }
+        });
+
     }
 
     private void setToolbar() {

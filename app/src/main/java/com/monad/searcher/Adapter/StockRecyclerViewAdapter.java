@@ -13,18 +13,31 @@ import java.util.ArrayList;
 
 public class StockRecyclerViewAdapter extends RecyclerView.Adapter<StockRecyclerViewAdapter.ViewHolder> {
     private ArrayList<StockData> mDataset;
-
+    private static ClickListener clickListener;
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
         // each data item is just a string in this case
-        public TextView mname,mprice;
+        public TextView mname, mprice;
 
         public ViewHolder(View view) {
             super(view);
+            view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
             mname = (TextView)view.findViewById(R.id.stock_name);
             mprice = (TextView)view.findViewById(R.id.stock_price);
+        }
+
+        @Override
+        public void onClick(View v) {
+            clickListener.onItemClick(getAdapterPosition(), v);
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            clickListener.onItemLongClick(getAdapterPosition(), v);
+            return false;
         }
     }
 
@@ -58,5 +71,14 @@ public class StockRecyclerViewAdapter extends RecyclerView.Adapter<StockRecycler
     @Override
     public int getItemCount() {
         return mDataset.size();
+    }
+
+    public void setOnItemClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
+
+    public interface ClickListener {
+        void onItemClick(int position, View v);
+        void onItemLongClick(int position, View v);
     }
 }
