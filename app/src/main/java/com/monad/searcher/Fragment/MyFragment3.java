@@ -31,31 +31,8 @@ public class MyFragment3 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_3, container, false);
-        mRecyclerView = (RecyclerView) v.findViewById(R.id.my_recycler_view);
         mLinearLayout = (LinearLayout) v.findViewById(R.id.color);
         mImage = (ImageView) v.findViewById(R.id.image);
-        setRecyclerView();
         return v;
-    }
-
-    private void setRecyclerView()
-    {
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);
-
-        // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        // specify an adapter (see also next example)
-        myDataset = new ArrayList<>();
-        mAdapter = new RecyclerViewAdapter(myDataset);
-        mRecyclerView.setAdapter(mAdapter);
-
-        mMydata = new MyData("현대증권", "19.42" , "+7.31%");
-        myDataset.add(mMydata);
-        myDataset.add(new MyData("삼성전자", "13.78" , "-7.36%"));
-        myDataset.add(new MyData("LG화학", "3.21" , "+7.49%"));
     }
 }

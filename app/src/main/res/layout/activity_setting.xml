@@ -48,7 +48,7 @@
         android:layout_height="0.8dp"
         android:background="#BDBDBD"/>
     <LinearLayout
-        android:id="@+id/setting_level2"
+        android:id="@+id/logout"
         android:clickable="true"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -81,6 +81,7 @@
         android:paddingTop="16dp"
         android:paddingLeft="16dp">
         <android.support.v7.widget.AppCompatCheckBox
+            android:buttonTint="@color/colorPrimary"
             android:id="@+id/push_checkbox"
             android:layout_width="72dp"
             android:layout_height="wrap_content"/>
@@ -103,24 +104,5 @@
                 android:fontFamily="sans-serif"
                 android:text="추천 종목과 알림에대하여 푸쉬 알람을 받습니다."/>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_gravity="bottom"
-            android:background="@color/colorPrimary"
-            android:text="로그인 / 로그아웃"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
     </LinearLayout>
 </LinearLayout>

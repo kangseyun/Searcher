@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.monad.searcher.Model.BasicStockModel;
@@ -42,6 +43,8 @@ public class SettingActivity extends AppCompatActivity {
     private Retrofit retrofit;
     private PushToken pushToken;
     private String token, email;
+    private LinearLayout logout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +67,17 @@ public class SettingActivity extends AppCompatActivity {
         }
         email  = result2.get(0).getEmail();
 
-        mlogin = (Button) findViewById(R.id.login);
         checkbox = (CheckBox) findViewById(R.id.push_checkbox);
+        logout = (LinearLayout) findViewById(R.id.logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -106,7 +118,6 @@ public class SettingActivity extends AppCompatActivity {
         });
 
 
-        setLogin();
     }
 
     private void setToolbar() {
@@ -124,15 +135,6 @@ public class SettingActivity extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(menuItem);
-    }
-
-    private void setLogin(){
-        mlogin.setOnClickListener(new Button.OnClickListener(){
-            public void onClick(View v) {
-                Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void databaseInit() {
