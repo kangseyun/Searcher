@@ -49,6 +49,7 @@ public class MyFragment2 extends Fragment {
         v = inflater.inflate(R.layout.fragment_2, container, false);
         mRecyclerView = (RecyclerView) v.findViewById(R.id.fragment2_recycler);
         setRecyclerView();
+        getData();
         return v;
     }
 
@@ -80,6 +81,7 @@ public class MyFragment2 extends Fragment {
         */
         super.onResume();
     }
+
     private void getData() {
         retrofit = RetrofitService.getInstnace();
         condition = retrofit.create(Condition.class);
@@ -88,10 +90,11 @@ public class MyFragment2 extends Fragment {
         load.enqueue(new Callback<List<ConditionModel>>() {
             @Override
             public void onResponse(Call<List<ConditionModel>> call, Response<List<ConditionModel>> response) {
-                List<ConditionModel> data = response.body();
-                for(ConditionModel obj : data) {
-                    myDataset.add(new Fragment2Model(1, obj.getSubject()));
+                List<ConditionModel> size = response.body();
+                for (ConditionModel obj : size) {
+                    myDataset.add(new Fragment2Model(obj.getExpress_index(), obj.getExpress_name()));
                 }
+                Log.i("result", size.get(0).getExpress_name());
                 mAdapter.notifyDataSetChanged();
             }
 
@@ -114,13 +117,13 @@ public class MyFragment2 extends Fragment {
         myDataset = new ArrayList<>();
         mAdapter = new Fragment2Adapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
-        myDataset.add(new Fragment2Model(1, "1ㅂ3"));
 
         mAdapter.setOnItemClickListener(new Fragment2Adapter.ClickListener() {
             @Override
             public void onItemClick(int position, View v) {
                 Log.i("Click", position  + "");
                 Intent i = new Intent(getContext(), ConditionStockActivity.class);
+                i.putExtra("num", myDataset.get(position).getPoint());
                 startActivity(i);
             }
 

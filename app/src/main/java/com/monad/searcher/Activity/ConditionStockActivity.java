@@ -44,12 +44,16 @@ public class ConditionStockActivity extends AppCompatActivity {
     private Button mnotice_on, mnotice_off;
     private Retrofit retrofit;
     private ConditionDetail conditionDetail;
+    private int num;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_condition_stock);
-
+        Intent i = getIntent();
+        num = i.getIntExtra("num", 0);
+        Log.i("num", num+"");
         //getData();
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_stock);
         mnotice_on = (Button) findViewById(R.id.notice_on);
@@ -58,6 +62,7 @@ public class ConditionStockActivity extends AppCompatActivity {
         setNoticeOn();
         setNoticeOff();
         setToolbar();
+        getData();
     }
 
     private void setRecyclerView()
@@ -74,12 +79,6 @@ public class ConditionStockActivity extends AppCompatActivity {
         myDataset = new ArrayList<>();
         mAdapter = new StockRecyclerViewAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
-
-        myDataset.add(new StockData("SAMSUNG","+25.37%"));
-        myDataset.add(new StockData("LG","+22.73%"));
-        myDataset.add(new StockData("한화","+18.24%"));
-        myDataset.add(new StockData("기아","+13.93%"));
-        myDataset.add(new StockData("애플","+9.43%"));
 
         mAdapter.setOnItemClickListener(new StockRecyclerViewAdapter.ClickListener() {
             @Override
@@ -140,14 +139,14 @@ public class ConditionStockActivity extends AppCompatActivity {
         retrofit = RetrofitService.getInstnace();
         conditionDetail = retrofit.create(ConditionDetail.class);
 
-        Call<List<ConditionDetailModel>> load = conditionDetail.getConditionList("1");
+        Call<List<ConditionDetailModel>> load = conditionDetail.getConditionList(num);
 
         load.enqueue(new Callback<List<ConditionDetailModel>>() {
             @Override
             public void onResponse(Call<List<ConditionDetailModel>> call, Response<List<ConditionDetailModel>> response) {
                 List<ConditionDetailModel> data = response.body();
                 for(ConditionDetailModel obj : data) {
-                    //myDataset.add(new Fragment2Model(obj.getId(), obj.getSubject()));
+                    myDataset.add(new StockData(obj.getItem_name(),"+25.37%"));
                 }
 
                 mAdapter.notifyDataSetChanged();

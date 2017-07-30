@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,14 +16,14 @@ public class ConditionStockDetailActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView title;
     private ImageView setting;
-
+    private int num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_condition_stock_detail);
-
         setToolbar();
+
 
     }
 
