@@ -10,62 +10,41 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="150dp"
         android:background="#34515e"
         android:orientation="vertical"
         android:layout_marginBottom="30dp">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
             android:textColor="#FFFFFF"
             android:gravity="center"
             android:text="Seeing is believing. \nWhatever you do, make it pay. \nYou will never know until you try. \nNo sweat, no sweet. "
             android:textSize="18dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <Button
-                android:id="@+id/notice_on"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="알림받기"
-                android:background="@drawable/btnround"
-                android:textColor="#FFFFFF"
-                android:textSize="18dp"/>
-
-            <Button
-                android:id="@+id/notice_off"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:background="@drawable/btnround"
-                android:text="알림끄기"
-                android:textColor="#FFFFFF"
-                android:textSize="18dp"/>
-        </LinearLayout>
 
     </LinearLayout>
-
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="단기간 주식 성장률 TOP5"
-        android:textSize="20dp"/>
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/condition_stock_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="단기간 주식 성장률 TOP5"
+            android:textSize="20dp"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview_stock"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:scrollbars="vertical"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"/>
-
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_stock"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
 </LinearLayout>

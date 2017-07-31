@@ -85,7 +85,7 @@ public class MyFragment2 extends Fragment {
     private void getData() {
         retrofit = RetrofitService.getInstnace();
         condition = retrofit.create(Condition.class);
-        Call<List<ConditionModel>> load = condition.getCondition();
+        Call<List<ConditionModel>> load = condition.getCondition("dcp.k953@gmail.com");
 
         load.enqueue(new Callback<List<ConditionModel>>() {
             @Override
@@ -121,9 +121,9 @@ public class MyFragment2 extends Fragment {
         mAdapter.setOnItemClickListener(new Fragment2Adapter.ClickListener() {
             @Override
             public void onItemClick(int position, View v) {
-                Log.i("Click", position  + "");
                 Intent i = new Intent(getContext(), ConditionStockActivity.class);
                 i.putExtra("num", myDataset.get(position).getPoint());
+                i.putExtra("title", myDataset.get(position).getName());
                 startActivity(i);
             }
 

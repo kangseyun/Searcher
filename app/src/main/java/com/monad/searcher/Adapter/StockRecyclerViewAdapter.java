@@ -63,8 +63,8 @@ public class StockRecyclerViewAdapter extends RecyclerView.Adapter<StockRecycler
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.mname.setText(mDataset.get(position).stock_name);
-        holder.mprice.setText(mDataset.get(position).stock_price);
+        holder.mname.setText(mDataset.get(position).getCode());
+        holder.mprice.setText(mDataset.get(position).getStock_name());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
