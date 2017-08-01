@@ -47,7 +47,10 @@
 
         <activity android:name=".Activity.ConditionStockActivity" />
         <activity android:name=".Activity.NoticeViewActivity" />
-        <activity android:name=".Activity.ConditionStockDetailActivity"></activity>
+        <activity android:name=".Activity.ConditionStockDetailActivity"/>
+        <activity android:name=".Activity.Fragment3DetailActivity"/>
+
+
     </application>
 
 </manifest>
