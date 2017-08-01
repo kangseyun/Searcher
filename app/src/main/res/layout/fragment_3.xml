@@ -14,6 +14,7 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/fragment3_item1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
@@ -32,6 +33,7 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/fragment3_item2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
@@ -50,6 +52,7 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/fragment3_item3"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
@@ -68,6 +71,7 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/fragment3_item4"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
@@ -86,6 +90,7 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/fragment3_item5"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"

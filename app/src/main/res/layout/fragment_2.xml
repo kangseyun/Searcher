@@ -16,12 +16,13 @@
             android:paddingRight="20dp">
 
             <TextView
+                android:textColor="#333"
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="left"
                 android:text="써처 조건식"
                 android:textSize="20dp"
                 android:textStyle="bold" />

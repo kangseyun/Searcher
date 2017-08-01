@@ -65,6 +65,7 @@ public class SettingActivity extends AppCompatActivity {
         if(result1.size() != 0) {
             token = result1.get(0).getToken();
         }
+
         email  = result2.get(0).getEmail();
 
         checkbox = (CheckBox) findViewById(R.id.push_checkbox);

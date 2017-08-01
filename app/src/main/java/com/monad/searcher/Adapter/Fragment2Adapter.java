@@ -22,14 +22,12 @@ public class Fragment2Adapter extends RecyclerView.Adapter<Fragment2Adapter.View
     // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         // each data item is just a string in this case
-        public TextView point;
         public TextView name;
 
         public ViewHolder(View view) {
             super(view);
             view.setOnClickListener(this);
             view.setOnLongClickListener(this);
-            point = (TextView)view.findViewById(R.id.item_fragment2_point);
             name = (TextView)view.findViewById(R.id.item_fragment2_name);
         }
 
@@ -68,7 +66,6 @@ public class Fragment2Adapter extends RecyclerView.Adapter<Fragment2Adapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.point.setText(mDataset.get(position).getPoint()+"");
         holder.name.setText(mDataset.get(position).getName());
     }
 

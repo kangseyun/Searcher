@@ -163,7 +163,6 @@ public class MyFragment extends Fragment {
 
     private View.OnClickListener leftListener = new View.OnClickListener() {
         public void onClick(View v) {
-
             issueDialog.dismiss();
         }
     };
