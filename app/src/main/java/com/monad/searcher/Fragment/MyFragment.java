@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.monad.searcher.Activity.LoginActivity;
+import com.monad.searcher.Dialog.IssueDialog;
 import com.monad.searcher.Model.BasicStockModel;
 import com.monad.searcher.Model.IssueModel;
 import com.monad.searcher.Model.LoginData;
@@ -33,6 +34,7 @@ public class MyFragment extends Fragment {
     private Retrofit retrofit;
     private BasicStock basicStock;
     private IssueRetrofit issueRetrofit;
+    private IssueDialog issueDialog;
 
     @Nullable
     @Override
@@ -51,36 +53,6 @@ public class MyFragment extends Fragment {
         getNasdaq();
 
         return v;
-    }
-
-    @Override
-    public void onResume() {
-        /*
-        LoginSingleton login = LoginSingleton.getInstance();
-
-        Callback<LoginData> callback = new Callback<LoginData>() {
-            @Override
-            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
-                LoginData data = response.body();
-                if(data.getLoginStatus().equals("invalid_token")) {
-                    Intent intent = new Intent(getContext(), LoginActivity.class);
-                    intent.putExtra("code", 254);
-                    startActivity(intent);
-                } else{
-                }
-            }
-
-            @Override
-            public void onFailure(Call<LoginData> call, Throwable t) {
-
-            }
-
-        };
-
-        login.checkInvalidToken(callback);
-        */
-        super.onResume();
-
     }
 
     private void getKospi() {
@@ -160,11 +132,9 @@ public class MyFragment extends Fragment {
                 List<IssueModel> data = response.body();
 
                 if (data.size() == 0) {
-
                 } else {
                     issue.setText(data.get(0).getContent());
                 }
-                //Log.i("data", data.get(0).getSubject());
             }
 
             @Override
@@ -180,6 +150,27 @@ public class MyFragment extends Fragment {
         dji = (TextView) v.findViewById(R.id.dji_point);
         nasdaq = (TextView) v.findViewById(R.id.nasdqa_point);
         issue = (TextView) v.findViewById(R.id.issue_content);
+
+
+        issue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                issueDialog = new IssueDialog(getContext(), issue.getText().toString(), leftListener);
+                issueDialog.show();
+            }
+        });
     }
 
+    private View.OnClickListener leftListener = new View.OnClickListener() {
+        public void onClick(View v) {
+
+            issueDialog.dismiss();
+        }
+    };
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }
