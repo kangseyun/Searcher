@@ -56,43 +56,43 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/kospi_top_name1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"
-                            android:text="SAMSUMG"
                             android:textColor="#FFFFFF" />
 
                         <TextView
+                            android:id="@+id/kospi_top_name2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"
-                            android:text="한화"
                             android:textColor="#FFFFFF" />
 
                         <TextView
+                            android:id="@+id/kospi_top_name3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"
-                            android:text="SK"
                             android:textColor="#FFFFFF" />
 
                         <TextView
+                            android:id="@+id/kospi_top_name4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"
-                            android:text="포스코"
                             android:textColor="#FFFFFF" />
 
                         <TextView
+                            android:id="@+id/kospi_top_name5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"
-                            android:text="한전"
                             android:textColor="#FFFFFF" />
 
                     </LinearLayout>
@@ -104,42 +104,42 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/kospi_top_point1"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="+11.15%"
                             android:textColor="#FFFFFF"
                             android:gravity="right"/>
 
                         <TextView
+                            android:id="@+id/kospi_top_point2"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="+5.23%"
                             android:textColor="#FFFFFF"
                             android:gravity="right"/>
 
                         <TextView
+                            android:id="@+id/kospi_top_point3"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="+4.37%"
                             android:textColor="#FFFFFF"
                             android:gravity="right"/>
 
                         <TextView
+                            android:id="@+id/kospi_top_point4"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="+2.29%"
                             android:textColor="#FFFFFF"
                             android:gravity="right"/>
 
                         <TextView
+                            android:id="@+id/kospi_top_point5"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="+2.17%"
                             android:textColor="#FFFFFF"
                             android:gravity="right"/>
 
@@ -174,43 +174,43 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/kospi_down_name1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"
-                            android:text="LG"
                             android:textColor="#FFFFFF" />
 
                         <TextView
+                            android:id="@+id/kospi_down_name2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"
-                            android:text="세아베스틸"
                             android:textColor="#FFFFFF" />
 
                         <TextView
+                            android:id="@+id/kospi_down_name3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"
-                            android:text="정진철강"
                             android:textColor="#FFFFFF" />
 
                         <TextView
+                            android:id="@+id/kospi_down_name4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"
-                            android:text="오리온"
                             android:textColor="#FFFFFF" />
 
                         <TextView
+                            android:id="@+id/kospi_down_name5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"
-                            android:text="롯데"
                             android:textColor="#FFFFFF" />
 
                     </LinearLayout>
@@ -222,42 +222,42 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/kospi_down_point1"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="-5.56%"
                             android:textColor="#FFFFFF"
                             android:gravity="right"/>
 
                         <TextView
+                            android:id="@+id/kospi_down_point2"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="-4.39%"
                             android:textColor="#FFFFFF"
                             android:gravity="right"/>
 
                         <TextView
+                            android:id="@+id/kospi_down_point3"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="-3.27%"
                             android:textColor="#FFFFFF"
                             android:gravity="right"/>
 
                         <TextView
+                            android:id="@+id/kospi_down_point4"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="-1.78%"
                             android:textColor="#FFFFFF"
                             android:gravity="right"/>
 
                         <TextView
+                            android:id="@+id/kospi_down_point5"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="-0.95%"
                             android:textColor="#FFFFFF"
                             android:gravity="right"/>
 
@@ -319,37 +319,37 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/kosdaq_top_name1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="효성"
                             android:textColor="#3f3f3f"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"/>
                         <TextView
+                            android:id="@+id/kosdaq_top_name2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="오뚜기"
                             android:textColor="#3f3f3f"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"/>
                         <TextView
+                            android:id="@+id/kosdaq_top_name3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="삼양"
                             android:textColor="#3f3f3f"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"/>
                         <TextView
+                            android:id="@+id/kosdaq_top_name4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="SAMSUNG"
                             android:textColor="#3f3f3f"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"/>
                         <TextView
+                            android:id="@+id/kosdaq_top_name5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="한전"
                             android:textColor="#3f3f3f"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="3dp"/>
@@ -363,37 +363,37 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/kosdaq_top_point1"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
-                            android:text="+19.59%"
                             android:textColor="#3f3f3f"
                             android:layout_marginTop="3dp"
                             android:gravity="right"/>
                         <TextView
+                            android:id="@+id/kosdaq_top_point2"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
-                            android:text="+16.27%"
                             android:textColor="#3f3f3f"
                             android:layout_marginTop="3dp"
                             android:gravity="right"/>
                         <TextView
+                            android:id="@+id/kosdaq_top_point3"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
-                            android:text="+14.16%"
                             android:textColor="#3f3f3f"
                             android:layout_marginTop="3dp"
                             android:gravity="right"/>
                         <TextView
+                            android:id="@+id/kosdaq_top_point4"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
-                            android:text="+9.27%"
                             android:textColor="#3f3f3f"
                             android:layout_marginTop="3dp"
                             android:gravity="right"/>
                         <TextView
+                            android:id="@+id/kosdaq_top_point5"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
-                            android:text="+7.36%"
                             android:textColor="#3f3f3f"
                             android:layout_marginTop="3dp"
                             android:gravity="right"/>
@@ -429,40 +429,44 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/kosdaq_down_name1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="롯데"
-                            android:textColor="#3f3f3f"
-                            android:layout_marginTop="3dp"/>
+                            android:layout_marginTop="3dp"
+                            android:textColor="#3f3f3f" />
+
                         <TextView
+                            android:id="@+id/kosdaq_down_name2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="오리온"
-                            android:textColor="#3f3f3f"
-                            android:layout_marginTop="3dp"/>
+                            android:layout_marginTop="3dp"
+                            android:textColor="#3f3f3f" />
+
                         <TextView
+                            android:id="@+id/kosdaq_down_name3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="넥슨"
-                            android:textColor="#3f3f3f"
-                            android:layout_marginTop="3dp"/>
+                            android:layout_marginTop="3dp"
+                            android:textColor="#3f3f3f" />
+
                         <TextView
+                            android:id="@+id/kosdaq_down_name4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="NC소프트"
-                            android:textColor="#3f3f3f"
-                            android:layout_marginTop="3dp"/>
+                            android:layout_marginTop="3dp"
+                            android:textColor="#3f3f3f" />
+
                         <TextView
+                            android:id="@+id/kosdaq_down_name5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="블리자드"
-                            android:textColor="#3f3f3f"
-                            android:layout_marginTop="3dp"/>
+                            android:layout_marginTop="3dp"
+                            android:textColor="#3f3f3f" />
 
 
                     </LinearLayout>
@@ -474,13 +478,14 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/kosdaq_down_point1"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
-                            android:text="-7.22%"
                             android:textColor="#3f3f3f"
                             android:layout_marginTop="3dp"
                             android:gravity="right"/>
                         <TextView
+                            android:id="@+id/kosdaq_down_point2"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:text="-6.31%"
@@ -488,6 +493,7 @@
                             android:layout_marginTop="3dp"
                             android:gravity="right"/>
                         <TextView
+                            android:id="@+id/kosdaq_down_point3"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:text="-5.19%"
@@ -495,6 +501,7 @@
                             android:layout_marginTop="3dp"
                             android:gravity="right"/>
                         <TextView
+                            android:id="@+id/kosdaq_down_point4"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:text="-4.27%"
@@ -502,6 +509,7 @@
                             android:layout_marginTop="3dp"
                             android:gravity="right"/>
                         <TextView
+                            android:id="@+id/kosdaq_down_point5"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:text="-2.39%"

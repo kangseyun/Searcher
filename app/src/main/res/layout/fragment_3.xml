@@ -1,104 +1,524 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:background="#FFFFFF"
-        android:gravity="center">
+        android:layout_weight="0.5"
+        android:background="#3f3f3f"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
-        <Button
-            android:id="@+id/fragment3_item1"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/buttonrouned_2"
-            android:text="상승률 / 하락률"
-            android:textColor="#34515e"
-            android:textSize="20dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:background="#34515e"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/fragment3_item2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/buttonrouned"
-            android:text="신고가 / 신저가"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="코스피"
             android:textColor="#FFFFFF"
-            android:textSize="20dp" />
+            android:textSize="30dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="상승률 TOP5"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/kospi_top_name1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/kospi_top_name2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/kospi_top_name3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/kospi_top_name4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/kospi_top_name5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/kospi_top_point1"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="right"/>
+
+                        <TextView
+                            android:id="@+id/kospi_top_point2"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="right"/>
+
+                        <TextView
+                            android:id="@+id/kospi_top_point3"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="right"/>
+
+                        <TextView
+                            android:id="@+id/kospi_top_point4"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="right"/>
+
+                        <TextView
+                            android:id="@+id/kospi_top_point5"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="right"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="하락률 TOP5"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/kospi_down_name1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/kospi_down_name2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/kospi_down_name3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/kospi_down_name4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/kospi_down_name5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/kospi_down_point1"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="right"/>
+
+                        <TextView
+                            android:id="@+id/kospi_down_point2"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="right"/>
+
+                        <TextView
+                            android:id="@+id/kospi_down_point3"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="right"/>
+
+                        <TextView
+                            android:id="@+id/kospi_down_point4"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="right"/>
+
+                        <TextView
+                            android:id="@+id/kospi_down_point5"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="right"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
+        android:layout_weight="0.5"
         android:background="#FFFFFF"
-        android:gravity="center">
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
-        <Button
-            android:id="@+id/fragment3_item3"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/buttonrouned_2"
-            android:text="외인 순매수 / 외인 순매도"
-            android:textColor="#34515e"
-            android:textSize="20dp" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="코스닥"
+            android:textColor="#3f3f3f"
+            android:textSize="30dp"
+            android:layout_marginTop="15dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:background="#34515e"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/fragment3_item4"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/buttonrouned"
-            android:text="기관 순매수 / 기관 순매도"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="상승률 TOP5"
+                    android:textColor="#3f3f3f"
+                    android:gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/kosdaq_top_name1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"/>
+                        <TextView
+                            android:id="@+id/kosdaq_top_name2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"/>
+                        <TextView
+                            android:id="@+id/kosdaq_top_name3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"/>
+                        <TextView
+                            android:id="@+id/kosdaq_top_name4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"/>
+                        <TextView
+                            android:id="@+id/kosdaq_top_name5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/kosdaq_top_point1"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginTop="3dp"
+                            android:gravity="right"/>
+                        <TextView
+                            android:id="@+id/kosdaq_top_point2"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginTop="3dp"
+                            android:gravity="right"/>
+                        <TextView
+                            android:id="@+id/kosdaq_top_point3"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginTop="3dp"
+                            android:gravity="right"/>
+                        <TextView
+                            android:id="@+id/kosdaq_top_point4"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginTop="3dp"
+                            android:gravity="right"/>
+                        <TextView
+                            android:id="@+id/kosdaq_top_point5"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginTop="3dp"
+                            android:gravity="right"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="하락률 TOP5"
+                    android:textColor="#3f3f3f"
+                    android:gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/kosdaq_down_name1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#3f3f3f" />
+
+                        <TextView
+                            android:id="@+id/kosdaq_down_name2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#3f3f3f" />
+
+                        <TextView
+                            android:id="@+id/kosdaq_down_name3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#3f3f3f" />
+
+                        <TextView
+                            android:id="@+id/kosdaq_down_name4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#3f3f3f" />
+
+                        <TextView
+                            android:id="@+id/kosdaq_down_name5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#3f3f3f" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/kosdaq_down_point1"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginTop="3dp"
+                            android:gravity="right"/>
+                        <TextView
+                            android:id="@+id/kosdaq_down_point2"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:text="-6.31%"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginTop="3dp"
+                            android:gravity="right"/>
+                        <TextView
+                            android:id="@+id/kosdaq_down_point3"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:text="-5.19%"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginTop="3dp"
+                            android:gravity="right"/>
+                        <TextView
+                            android:id="@+id/kosdaq_down_point4"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:text="-4.27%"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginTop="3dp"
+                            android:gravity="right"/>
+                        <TextView
+                            android:id="@+id/kosdaq_down_point5"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:text="-2.39%"
+                            android:textColor="#3f3f3f"
+                            android:layout_marginTop="3dp"
+                            android:gravity="right"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:background="#FFFFFF"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/fragment3_item5"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/buttonrouned_2"
-            android:text="거래량"
-            android:textColor="#34515e"
-            android:textSize="20dp" />
-    </LinearLayout>
-
 </LinearLayout>

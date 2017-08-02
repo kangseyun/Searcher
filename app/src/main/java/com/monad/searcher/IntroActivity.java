@@ -37,6 +37,7 @@ public class IntroActivity extends AppCompatActivity {
 
         databaseInit();
 
+
         RealmManager.open();
         final RealmResults<LoginData> result = RealmManager.CreateLoginDao().loadAll();
         List<LoginData> data = result;

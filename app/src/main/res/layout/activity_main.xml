@@ -20,12 +20,11 @@
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.9" />
+            android:layout_weight="1" />
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
+            android:layout_height="50dp"
             android:gravity="bottom"
             app:elevation="0dp">
 
@@ -39,6 +38,5 @@
                 app:tabSelectedTextColor="@color/white"
             app:tabMode="fixed" />
         </android.support.design.widget.AppBarLayout>
-
     </LinearLayout>
 </LinearLayout>

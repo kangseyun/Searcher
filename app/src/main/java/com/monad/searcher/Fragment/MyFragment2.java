@@ -85,8 +85,9 @@ public class MyFragment2 extends Fragment {
         retrofit = RetrofitService.getInstnace();
         condition = retrofit.create(Condition.class);
 
-        LoginSingleton login = LoginSingleton.getInstance();
-        Call<List<ConditionModel>> load = condition.getCondition(login.getEmail());
+        //LoginSingleton login = LoginSingleton.getInstance();
+        //Log.i("loginId", login.getEmail());
+        Call<List<ConditionModel>> load = condition.getCondition("dcp.k953@gmail.com");
 
         load.enqueue(new Callback<List<ConditionModel>>() {
             @Override

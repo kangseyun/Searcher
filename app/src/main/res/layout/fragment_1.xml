@@ -4,207 +4,190 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5">
 
-    <ScrollView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="30dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center|left"
+        android:text="증시정보"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:paddingTop="3dp"
+            android:text="KOSPI"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingTop="15dp">
+            android:layout_height="60dp"
+            android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/kospi_point"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="20dp"
-                android:gravity="center|left"
-                android:text="증시정보"
-                android:textSize="20dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="1"
+                android:text="2500"
+                android:textColor="#FF5252"
+                android:textSize="30dp"
                 android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@color/white"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="3dp"
-                    android:text="KOSPI"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/kospi_point"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_weight="1"
-                        android:text="2500"
-                        android:textColor="#FF5252"
-                        android:textSize="30dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@color/white"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="3dp"
-                    android:text="KOSDAQ"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <TextView
-                        android:id="@+id/kosdaq_point"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="3dp"
-                        android:text="325"
-                        android:textColor="#448AFF"
-                        android:textSize="30dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@color/white"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="3dp"
-                    android:text="DJI"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <TextView
-                        android:id="@+id/dji_point"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="3dp"
-                        android:text="4320"
-                        android:textColor="#FF5252"
-                        android:textSize="30dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@color/white"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="3dp"
-                    android:text="NASDAQ"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <TextView
-                        android:id="@+id/nasdqa_point"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="3dp"
-                        android:text="2500"
-                        android:textColor="#FF5252"
-                        android:textSize="30dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:layout_marginBottom="20dp"
-                android:background="#607D8B"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:gravity="center"
-                    android:paddingTop="3dp"
-                    android:text="오늘의 이슈"
-                    android:textColor="#FFF"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:scrollbars="vertical"
-                    android:padding="10dp"
-                    android:id="@+id/issue_content"
-                    android:textColor="#FFF"
-                    android:textSize="15dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
-
         </LinearLayout>
+    </LinearLayout>
 
-    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:paddingTop="3dp"
+            android:text="KOSDAQ"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:id="@+id/kosdaq_point"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:text="325"
+                android:textColor="#448AFF"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:paddingTop="3dp"
+            android:text="DJI"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:id="@+id/dji_point"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:text="4320"
+                android:textColor="#FF5252"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:paddingTop="3dp"
+            android:text="NASDAQ"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:id="@+id/nasdqa_point"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:text="2500"
+                android:textColor="#FF5252"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="#607D8B"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:paddingTop="3dp"
+            android:text="오늘의 이슈"
+            android:textColor="#FFF"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:scrollbars="vertical"
+            android:padding="10dp"
+            android:id="@+id/issue_content"
+            android:textColor="#FFF"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </LinearLayout>

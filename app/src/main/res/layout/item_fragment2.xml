@@ -22,13 +22,13 @@
             android:layout_width="match_parent"
             android:layout_height="20dp">
             <TextView
-                android:text="24:1"
+                android:id="@+id/fragment2_item_no"
+                android:text=""
                 android:gravity="left|center"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <TextView
-                android:text="3500"
                 android:layout_weight="1"
                 android:gravity="right|center"
                 android:layout_width="match_parent"
