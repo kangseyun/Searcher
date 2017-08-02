@@ -55,30 +55,6 @@ public class MyFragment2 extends Fragment {
 
     @Override
     public void onResume() {
-        /*
-        LoginSingleton login = LoginSingleton.getInstance();
-
-        Callback<LoginData> callback = new Callback<LoginData>() {
-            @Override
-            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
-                LoginData data = response.body();
-                if(data.getLoginStatus().equals("invalid_token")) {
-                    Intent intent = new Intent(getContext(), LoginActivity.class);
-                    intent.putExtra("code", 254);
-                    startActivity(intent);
-                } else{
-                }
-            }
-
-            @Override
-            public void onFailure(Call<LoginData> call, Throwable t) {
-
-            }
-
-        };
-
-        login.checkInvalidToken(callback);
-        */
         super.onResume();
     }
 
@@ -92,7 +68,7 @@ public class MyFragment2 extends Fragment {
             public void onResponse(Call<List<ConditionModel>> call, Response<List<ConditionModel>> response) {
                 List<ConditionModel> size = response.body();
                 for (ConditionModel obj : size) {
-                    myDataset.add(new Fragment2Model(obj.getExpress_index(), obj.getExpress_name()));
+                    myDataset.add(new Fragment2Model(obj.getExpress_index(), obj.getExpress_name(), obj.getExpress_content()));
                 }
                 Log.i("result", size.get(0).getExpress_name());
                 mAdapter.notifyDataSetChanged();
@@ -124,6 +100,7 @@ public class MyFragment2 extends Fragment {
                 Intent i = new Intent(getContext(), ConditionStockActivity.class);
                 i.putExtra("num", myDataset.get(position).getPoint());
                 i.putExtra("title", myDataset.get(position).getName());
+                i.putExtra("content", myDataset.get(position).getContent());
                 startActivity(i);
             }
 

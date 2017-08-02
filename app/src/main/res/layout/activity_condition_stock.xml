@@ -16,11 +16,13 @@
         android:layout_marginBottom="30dp">
 
         <TextView
+            android:padding="10dp"
+            android:text="Hello World"
+            android:id="@+id/condition_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="#FFFFFF"
             android:gravity="center"
-            android:text="Seeing is believing. \nWhatever you do, make it pay. \nYou will never know until you try. \nNo sweat, no sweet. "
             android:textSize="18dp"/>
 
 
