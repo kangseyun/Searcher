@@ -132,7 +132,6 @@ public class LoginActivity extends AppCompatActivity implements
             if(code.equals(255)) {
                 Intent newIntent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(newIntent);
-
             }
 
             if(!code.equals(0))

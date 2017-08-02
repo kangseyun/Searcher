@@ -61,16 +61,20 @@ public class MyFragment2 extends Fragment {
     private void getData() {
         retrofit = RetrofitService.getInstnace();
         condition = retrofit.create(Condition.class);
-        Call<List<ConditionModel>> load = condition.getCondition("dcp.k953@gmail.com");
+
+        LoginSingleton login = LoginSingleton.getInstance();
+        Call<List<ConditionModel>> load = condition.getCondition(login.getEmail());
 
         load.enqueue(new Callback<List<ConditionModel>>() {
             @Override
             public void onResponse(Call<List<ConditionModel>> call, Response<List<ConditionModel>> response) {
                 List<ConditionModel> size = response.body();
+
                 for (ConditionModel obj : size) {
                     myDataset.add(new Fragment2Model(obj.getExpress_index(), obj.getExpress_name(), obj.getExpress_content()));
                 }
-                Log.i("result", size.get(0).getExpress_name());
+                //Log.i("result", size.get(0).getExpress_name());
+
                 mAdapter.notifyDataSetChanged();
             }
 
