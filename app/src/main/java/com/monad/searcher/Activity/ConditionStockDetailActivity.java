@@ -10,15 +10,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.monad.searcher.Model.ConditionDetailModel;
 import com.monad.searcher.Model.ConditionStockModel;
-import com.monad.searcher.Model.StockData;
 import com.monad.searcher.R;
 import com.monad.searcher.Retrofit.ConditionDetail;
 import com.monad.searcher.Retrofit.ConditionStock;
 import com.monad.searcher.Util.RetrofitService;
 
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -85,6 +82,8 @@ public class ConditionStockDetailActivity extends AppCompatActivity {
                 item_current_price.setText(data.getItem_current_price()+"");
                 hight.setText(data.getItem_high_price() + "");
                 down.setText(data.getItem_low_price() + "");
+                market_value.setText(data.getItem_marketcap() + "");
+                before_cost.setText(data.getItem_yester_price() + "");
                 //setData(data.getItem_high_price(), data.getItem_low_price(), data.get);
             }
 

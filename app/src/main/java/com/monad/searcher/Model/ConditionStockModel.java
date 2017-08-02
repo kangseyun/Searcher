@@ -8,7 +8,8 @@ public class ConditionStockModel {
     private String item_code;
     private String item_name;
     private String item_transactions;
-
+    private float item_marketcap; // 시가총액
+    private float item_yester_price; //전일가
     private float item_current_price;
     private float item_high_price;
     private float item_low_price;
@@ -81,5 +82,21 @@ public class ConditionStockModel {
 
     public void setItem_percentage(float item_percentage) {
         this.item_percentage = item_percentage;
+    }
+
+    public float getItem_yester_price() {
+        return item_yester_price;
+    }
+
+    public void setItem_yester_price(float item_yester_price) {
+        this.item_yester_price = item_yester_price;
+    }
+
+    public float getItem_marketcap() {
+        return item_marketcap;
+    }
+
+    public void setItem_marketcap(float item_marketcap) {
+        this.item_marketcap = item_marketcap;
     }
 }
