@@ -20,21 +20,12 @@ import java.util.ArrayList;
 
 public class MyFragment3 extends Fragment implements View.OnClickListener {
     private View v;
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<MyData> myDataset;
-    private LinearLayout mLinearLayout;
-    private MyData mMydata;
-    private ImageView mImage;
     private Button item1, item2, item3, item4, item5;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_3, container, false);
-        mLinearLayout = (LinearLayout) v.findViewById(R.id.color);
-        mImage = (ImageView) v.findViewById(R.id.image);
         setLayout();
 
         return v;

@@ -11,11 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.monad.searcher.Activity.ConditionStockActivity;
 import com.monad.searcher.Activity.LoginActivity;
 import com.monad.searcher.Adapter.Fragment2Adapter;
+import com.monad.searcher.Dialog.HelpDialog;
 import com.monad.searcher.Model.BasicStockModel;
 import com.monad.searcher.Model.ConditionModel;
 import com.monad.searcher.Model.Fragment2Model;
@@ -41,6 +43,8 @@ public class MyFragment2 extends Fragment {
     private ArrayList<Fragment2Model> myDataset;
     private Retrofit retrofit;
     private Condition condition;
+    private ImageView helpBtn;
+    private HelpDialog helpDialog;
 
 
     @Nullable
@@ -50,6 +54,8 @@ public class MyFragment2 extends Fragment {
         mRecyclerView = (RecyclerView) v.findViewById(R.id.fragment2_recycler);
         setRecyclerView();
         getData();
+        setHelp();
+
         return v;
     }
 
@@ -57,6 +63,23 @@ public class MyFragment2 extends Fragment {
     public void onResume() {
         super.onResume();
     }
+
+    private void setHelp() {
+        helpBtn = (ImageView) v.findViewById(R.id.help_img);
+        helpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helpDialog = new HelpDialog(getContext(), "123", clickListener);
+                helpDialog.show();
+            }
+        });
+    }
+
+    private View.OnClickListener clickListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            helpDialog.dismiss();
+        }
+    };
 
     private void getData() {
         retrofit = RetrofitService.getInstnace();
@@ -70,7 +93,6 @@ public class MyFragment2 extends Fragment {
                 for (ConditionModel obj : size) {
                     myDataset.add(new Fragment2Model(obj.getExpress_index(), obj.getExpress_name(), obj.getExpress_content()));
                 }
-                Log.i("result", size.get(0).getExpress_name());
                 mAdapter.notifyDataSetChanged();
             }
 
