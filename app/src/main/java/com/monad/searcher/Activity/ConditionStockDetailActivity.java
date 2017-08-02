@@ -27,8 +27,8 @@ public class ConditionStockDetailActivity extends AppCompatActivity {
     private ImageView setting;
     private String id;
 
-    private TextView hight, down, before_cost, previous_cost, volume,
-            market_value, item_current_price;
+    private TextView hight, down, before_cost, item_percentage, volume,
+            market_value, item_current_price, item_code;
     private TextView now_point, title;
     private Retrofit retrofit;
     private ConditionStock conditionStock;
@@ -45,24 +45,13 @@ public class ConditionStockDetailActivity extends AppCompatActivity {
         hight = (TextView) findViewById(R.id.hight);
         down = (TextView) findViewById(R.id.down);
         before_cost = (TextView) findViewById(R.id.before_cost);
-        previous_cost = (TextView) findViewById(R.id.previous_cost);
-        volume = (TextView) findViewById(R.id.volume);
+        item_percentage = (TextView) findViewById(R.id.item_percentage);
         market_value = (TextView) findViewById(R.id.market_value);
         now_point = (TextView) findViewById(R.id.now_point);
         title = (TextView) findViewById(R.id.stock_title);
         item_current_price = (TextView) findViewById(R.id.item_current_price);
+        item_code = (TextView) findViewById(R.id.item_code);
         getData();
-    }
-
-    private void setData(String hight, String dowm, String before_cost, String market_capitalization,
-                         String previous_cost, String volume, String market_value) {
-
-        this.hight.setText(hight);
-        this.down.setText(dowm);
-        this.before_cost.setText(before_cost);
-        this.previous_cost.setText(previous_cost);
-        this.volume.setText(volume);
-        this.market_value.setText(market_value);
     }
 
     private void getData() {
@@ -84,6 +73,8 @@ public class ConditionStockDetailActivity extends AppCompatActivity {
                 down.setText(data.getItem_low_price() + "");
                 market_value.setText(data.getItem_marketcap() + "");
                 before_cost.setText(data.getItem_yester_price() + "");
+                item_code.setText(data.getItem_code());
+                item_percentage.setText(data.getItem_percentage() + "");
                 //setData(data.getItem_high_price(), data.getItem_low_price(), data.get);
             }
 

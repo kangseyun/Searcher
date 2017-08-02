@@ -9,7 +9,7 @@
     android:layout_marginRight="30dp"
     android:layout_marginLeft="30dp">
 
-    <Button
+    <TextView
         android:id="@+id/item_fragment2_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
