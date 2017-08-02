@@ -28,7 +28,7 @@ public class ConditionStockDetailActivity extends AppCompatActivity {
     private String id;
 
     private TextView hight, down, before_cost, item_percentage, volume,
-            market_value, item_current_price, item_code;
+            market_value, item_current_price, item_code, cost;
     private TextView now_point, title;
     private Retrofit retrofit;
     private ConditionStock conditionStock;
@@ -51,6 +51,7 @@ public class ConditionStockDetailActivity extends AppCompatActivity {
         title = (TextView) findViewById(R.id.stock_title);
         item_current_price = (TextView) findViewById(R.id.item_current_price);
         item_code = (TextView) findViewById(R.id.item_code);
+        cost = (TextView) findViewById(R.id.cost);
         getData();
     }
 
@@ -75,6 +76,7 @@ public class ConditionStockDetailActivity extends AppCompatActivity {
                 before_cost.setText(data.getItem_yester_price() + "");
                 item_code.setText(data.getItem_code());
                 item_percentage.setText(data.getItem_percentage() + "");
+                cost.setText(data.getItem_price()+"");
                 //setData(data.getItem_high_price(), data.getItem_low_price(), data.get);
             }
 

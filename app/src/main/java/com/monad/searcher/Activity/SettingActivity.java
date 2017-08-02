@@ -56,14 +56,17 @@ public class SettingActivity extends AppCompatActivity {
 
         retrofit = RetrofitService.getInstnace();
         pushToken = retrofit.create(PushToken.class);
-        RealmQuery<LoginData> query2 = realm.where(LoginData.class);
-        RealmQuery<TokenModel> query = realm.where(TokenModel.class);
 
+        RealmQuery<TokenModel> query = realm.where(TokenModel.class);
+        RealmQuery<LoginData> query2 = realm.where(LoginData.class);
 
         RealmResults<TokenModel> result1 = query.findAll();
         RealmResults<LoginData> result2 = query2.findAll();
+
         if(result1.size() != 0) {
             token = result1.get(0).getToken();
+        }else {
+            Log.i("Toekn", "Not");
         }
 
         email  = result2.get(0).getEmail();
@@ -140,17 +143,6 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     private void databaseInit() {
-        Realm.init(this);
-
-        RealmConfiguration realmConfiguration =
-                new RealmConfiguration.Builder()
-                        .name("realm-sample.db")
-                        .schemaVersion(1)
-                        .deleteRealmIfMigrationNeeded()
-                        .build();
-
-        Realm.setDefaultConfiguration(realmConfiguration);
-
         realm = Realm.getDefaultInstance();
     }
 }

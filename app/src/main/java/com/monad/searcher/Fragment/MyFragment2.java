@@ -69,7 +69,7 @@ public class MyFragment2 extends Fragment {
         helpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helpDialog = new HelpDialog(getContext(), "123", clickListener);
+                helpDialog = new HelpDialog(getContext(), "조건식 설명 넣어주세요", clickListener);
                 helpDialog.show();
             }
         });
