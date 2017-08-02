@@ -93,6 +93,12 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         tabLayout.setOnTabSelectedListener(this);
     }
 
+    void selectPage(int pageIndex)
+    {
+        viewPager.setCurrentItem(pageIndex);
+        tabLayout.setupWithViewPager(viewPager);
+    }
+
     private void setViewPager() {
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
@@ -149,12 +155,12 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     @Override
     public void onPageSelected(int position) {
-
+        TabLayout.Tab tab = tabLayout.getTabAt(position);
+        tab.select();
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
     }
 
     @Override

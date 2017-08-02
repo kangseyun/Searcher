@@ -16,6 +16,6 @@ import retrofit2.http.Query;
 
 public interface PushToken {
     @FormUrlEncoded
-    @POST("/set_pushToken/")
+    @POST("/pushToken/")
     Call<TokenPushModel> pushToken(@Field("userToken") String token, @Field("userEmail") String email);
 }
