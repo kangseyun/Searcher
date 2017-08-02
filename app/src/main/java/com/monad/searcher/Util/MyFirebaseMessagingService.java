@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import com.google.firebase.messaging.RemoteMessage;
 import com.monad.searcher.Activity.MainActivity;
@@ -21,7 +22,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
         //추가한것
-        sendNotification(remoteMessage.getData().get("message"));
+        sendNotification(remoteMessage.getNotification().getBody());
     }
 
     private void sendNotification(String messageBody) {
@@ -32,13 +33,12 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
 
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("FCM Push Test")
+                .setSmallIcon(R.mipmap.searcher_icon)
+                .setContentTitle("써처 알림")
                 .setContentText(messageBody)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
-
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
