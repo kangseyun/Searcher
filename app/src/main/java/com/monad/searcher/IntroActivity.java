@@ -42,17 +42,34 @@ public class IntroActivity extends AppCompatActivity {
         List<LoginData> data = result;
 
         if(data.size() == 0) {
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
-                    intent.putExtra("code", 255);
-                    startActivity(intent);
+            LoginSingleton login = LoginSingleton.getInstance();
+            login.setToken("invalid_token");
 
-                    finish();
+            Callback<LoginData> callback = new Callback<LoginData>() {
+                @Override
+                public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
+                            intent.putExtra("code", 255);
+                            startActivity(intent);
+
+                            finish();
+                        }
+                    }, 2000);
                 }
-            }, 2000);
+
+                @Override
+                public void onFailure(Call<LoginData> call, Throwable t) {
+                    statusMessage.setText("인터넷 연결을 확인해주십시오.");
+
+                    call.clone().enqueue(this);
+                }
+            };
+
+            login.checkInvalidToken(callback);
 
         } else {
             LoginSingleton login = LoginSingleton.getInstance();
@@ -106,7 +123,7 @@ public class IntroActivity extends AppCompatActivity {
         }
     }
 
-    private void databaseInit() {
+    public void databaseInit() {
         Realm.init(this);
 
         RealmConfiguration realmConfiguration =
