@@ -2,39 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="#FFFFFF">
 
-    <ScrollView
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:gravity="center"
+        android:text="( 써처 조건식 )"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment2_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
-
-            <TextView
-                android:textColor="#333"
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:gravity="left"
-                android:text="써처 조건식"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-          <android.support.v7.widget.RecyclerView
-              android:id="@+id/fragment2_recycler"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-
-          </android.support.v7.widget.RecyclerView>
-        </LinearLayout>
-    </ScrollView>
-
-
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>
