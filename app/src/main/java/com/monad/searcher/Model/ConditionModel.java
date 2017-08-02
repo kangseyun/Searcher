@@ -7,6 +7,7 @@ package com.monad.searcher.Model;
 public class ConditionModel {
     private int express_index;
     private String express_name;
+    private String express_content;
 
     public ConditionModel() {
 
@@ -27,5 +28,13 @@ public class ConditionModel {
 
     public void setExpress_name(String express_name) {
         this.express_name = express_name;
+    }
+
+    public String getExpress_content() {
+        return express_content;
+    }
+
+    public void setExpress_content(String express_content) {
+        this.express_content = express_content;
     }
 }

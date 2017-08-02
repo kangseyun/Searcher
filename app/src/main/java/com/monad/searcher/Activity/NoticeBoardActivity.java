@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +17,6 @@ import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.R;
 import com.monad.searcher.Retrofit.Community;
 import com.monad.searcher.Util.RetrofitService;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -109,6 +106,5 @@ public class NoticeBoardActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), R.string.postArticle_failed, Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

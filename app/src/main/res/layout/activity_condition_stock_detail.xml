@@ -102,12 +102,12 @@
                         android:textColor="#FFF"
                         android:textStyle="bold"
                         android:layout_weight="1"
-                        android:text="전일가"
+                        android:text="종목번호"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
                     <TextView
-                        android:id="@+id/previous_cost"
+                        android:id="@+id/item_code"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -236,11 +236,11 @@
                         android:textColor="#FFF"
                         android:textStyle="bold"
                         android:layout_weight="1"
-                        android:text="거래량"
+                        android:text="등락폭"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                     <TextView
-                        android:id="@+id/volume"
+                        android:id="@+id/item_percentage"
                         android:text="2,490,000"
                         android:gravity="center"
                         android:textColor="#FFF"
@@ -257,7 +257,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
-                        android:id="@+id/before_cost"
                         android:gravity="center"
                         android:textColor="#FFF"
                         android:textStyle="bold"
@@ -266,6 +265,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                     <TextView
+                        android:id="@+id/before_cost"
                         android:text="2,490,000"
                         android:gravity="center"
                         android:textColor="#FFF"

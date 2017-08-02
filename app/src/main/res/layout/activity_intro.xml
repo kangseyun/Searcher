@@ -1,48 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context="com.monad.searcher.IntroActivity"
     android:orientation="vertical"
-    android:weightSum="1"
-    android:gravity="center_horizontal">
+    android:background="#3F6184">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="0.5"
-        android:gravity="bottom">
-
-        <TextView
-            android:textStyle="bold"
-            android:textSize="35dp"
-            android:textColor="#FFF"
-            android:text="SEARCHER"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteY="8dp"
-            tools:layout_editor_absoluteX="8dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="0.5"
-        android:gravity="bottom">
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/intro"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        />
 
     <TextView
-        android:text="초기화중"
-        android:id="@+id/introStatusMessage"
-        android:textColor="#FFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="15dp"/>
-    </LinearLayout>
+        android:text="K-SEARCHER"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
 
-</LinearLayout>
+    <TextView
+        android:text="초기화중..."
+        android:id="@+id/introStatusMessage"
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="15dp"
+        android:textSize="15dp"/>
+
+</FrameLayout>

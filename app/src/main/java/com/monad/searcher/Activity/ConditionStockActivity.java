@@ -40,24 +40,28 @@ public class ConditionStockActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ImageView setting;
     private TextView title;
-    private Button mnotice_on, mnotice_off;
     private Retrofit retrofit;
     private ConditionDetail conditionDetail;
     private int num;
-    private TextView subject;
-    private String stock_title;
+    private TextView subject, condition_content;
+    private String stock_title, content;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_condition_stock);
+
         Intent i = getIntent();
         num = i.getIntExtra("num", 0);
         stock_title = i.getStringExtra("title");
+        content = i.getStringExtra("content");
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_stock);
         subject = (TextView) findViewById(R.id.condition_stock_title);
+        condition_content = (TextView) findViewById(R.id.condition_content);
         subject.setText(stock_title);
+        condition_content.setText(content);
         setRecyclerView();
         setToolbar();
         getData();
@@ -113,28 +117,6 @@ public class ConditionStockActivity extends AppCompatActivity {
         });
     }
 
-    private void setNoticeOn() {
-        mnotice_on.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder alert = new AlertDialog.Builder(ConditionStockActivity.this);
-
-                alert.setTitle("알림을 받으시겠습니까?");
-                alert.setMessage(getString(R.string.notice_on));
-
-                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                    }
-                });
-                alert.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                    }
-                });
-                alert.show();
-            }
-        });
-    }
-
     private void getData() {
         retrofit = RetrofitService.getInstnace();
         conditionDetail = retrofit.create(ConditionDetail.class);
@@ -168,26 +150,4 @@ public class ConditionStockActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(menuItem);
     }
 
-    private void setNoticeOff()
-    {
-        mnotice_off.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder alert = new AlertDialog.Builder(ConditionStockActivity.this);
-
-                alert.setTitle("알림을 끄시겠습니까?");
-                alert.setMessage(getString(R.string.notice_off));
-
-                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                    }
-                });
-                alert.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                    }
-                });
-                alert.show();
-            }
-        });
-    }
 }
