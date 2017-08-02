@@ -84,6 +84,7 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
+                    Log.d("Token : ", token);
                     Call<TokenPushModel> load = pushToken.pushToken(token, email);
 
                     load.enqueue(new Callback<TokenPushModel>() {
