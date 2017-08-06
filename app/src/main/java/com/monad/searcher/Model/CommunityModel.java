@@ -10,7 +10,7 @@ public class CommunityModel {
     private int id;
 
     private String status;
-
+    private String token;
     private String subject;
     private String content;
     private String user_name;
@@ -39,5 +39,13 @@ public class CommunityModel {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

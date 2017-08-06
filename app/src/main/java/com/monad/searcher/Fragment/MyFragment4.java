@@ -46,7 +46,7 @@ public class MyFragment4 extends Fragment {
     private FloatingActionButton mbtn;
 
     public static Context mContext;
-
+    private LoginSingleton login;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +54,7 @@ public class MyFragment4 extends Fragment {
         mRecyclerView = (RecyclerView) v.findViewById(R.id.notice_board);
         mbtn = (FloatingActionButton) v.findViewById(R.id.fab);
         mContext = getContext();
+        login = LoginSingleton.getInstance();
 
         setRecyclerView();
         setBtn();
@@ -135,6 +136,8 @@ public class MyFragment4 extends Fragment {
         retrofit = RetrofitService.getInstnace();
         community = retrofit.create(Community.class);
 
+
+
         Call<List<CommunityModel>> load = community.getArticles();
         load.enqueue(new Callback<List<CommunityModel>>() {
             @Override
@@ -144,9 +147,10 @@ public class MyFragment4 extends Fragment {
                 myDataset.clear();
 
                 for(CommunityModel i : data) {
-                    DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
-
-                    myDataset.add(new MyData2(i.getContent(), i.getUserName(), dateformat.format(i.getCreated())));
+                    if (i.getToken().equals(login.getToken())) {
+                        DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+                        myDataset.add(new MyData2(i.getContent(), i.getUserName(), dateformat.format(i.getCreated())));
+                    }
                 }
 
                 mAdapter.notifyDataSetChanged();
