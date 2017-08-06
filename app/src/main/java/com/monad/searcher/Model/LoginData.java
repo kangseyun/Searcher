@@ -27,11 +27,9 @@ public class LoginData extends RealmObject {
     public String getLoginStatus() {
         return status;
     }
-
     public String getEmail() {
         return email;
     }
-
     public String getToken() {
         return token;
     }

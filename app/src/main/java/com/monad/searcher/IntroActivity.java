@@ -65,7 +65,6 @@ public class IntroActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<LoginData> call, Throwable t) {
                     statusMessage.setText("인터넷 연결을 확인해주십시오.");
-
                     call.clone().enqueue(this);
                 }
             };
@@ -74,7 +73,9 @@ public class IntroActivity extends AppCompatActivity {
 
         } else {
             LoginSingleton login = LoginSingleton.getInstance();
+
             login.setToken(data.get(0).getToken());
+            login.setEmail(data.get(0).getEmail());
 
             Callback<LoginData> callback = new Callback<LoginData>() {
                 @Override

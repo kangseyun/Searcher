@@ -93,8 +93,10 @@ public class MyFragment2 extends Fragment {
             public void onResponse(Call<List<ConditionModel>> call, Response<List<ConditionModel>> response) {
                 List<ConditionModel> size = response.body();
 
-                for (ConditionModel obj : size) {
-                    myDataset.add(new Fragment2Model(obj.getExpress_index(), obj.getExpress_name(), obj.getExpress_content()));
+                if(size != null) {
+                    for (ConditionModel obj : size) {
+                        myDataset.add(new Fragment2Model(obj.getExpress_index(), obj.getExpress_name(), obj.getExpress_content()));
+                    }
                 }
 
                 mAdapter.notifyDataSetChanged();
