@@ -166,7 +166,7 @@ public class NoticeViewActivity extends AppCompatActivity implements ViewPager.O
 
                     }
 
-                    article_title.setText(data.getContent());
+                    article_title.setText(data.getSubject());
                     article_content.setText(data.getContent());
                 }
             }

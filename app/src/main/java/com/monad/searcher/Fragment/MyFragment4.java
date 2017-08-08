@@ -149,7 +149,7 @@ public class MyFragment4 extends Fragment {
                 for(CommunityModel i : data) {
                     if (i.getToken().equals(login.getToken())) {
                         DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
-                        myDataset.add(new MyData2(i.getContent(), i.getUserName(), dateformat.format(i.getCreated())));
+                        myDataset.add(new MyData2(i.getSubject(), i.getUserName(), dateformat.format(i.getCreated())));
                     }
                 }
 
