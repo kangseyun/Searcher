@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.monad.searcher.Model.BasicStockModel;
 import com.monad.searcher.Model.LoginData;
+import com.monad.searcher.Model.TokenCheckModel;
 import com.monad.searcher.Model.TokenModel;
 import com.monad.searcher.Model.TokenPushModel;
 import com.monad.searcher.R;
@@ -44,7 +45,7 @@ public class SettingActivity extends AppCompatActivity {
     private PushToken pushToken;
     private String token, email;
     private LinearLayout logout;
-
+    private TokenCheckModel tokenCheckModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +60,24 @@ public class SettingActivity extends AppCompatActivity {
 
         RealmQuery<TokenModel> query = realm.where(TokenModel.class);
         RealmQuery<LoginData> query2 = realm.where(LoginData.class);
+        RealmQuery<TokenCheckModel> query3 = realm.where(TokenCheckModel.class);
 
         RealmResults<TokenModel> result1 = query.findAll();
         RealmResults<LoginData> result2 = query2.findAll();
+        RealmResults<TokenCheckModel> result3 = query3.findAll();
+        checkbox = (CheckBox) findViewById(R.id.push_checkbox);
+
+        if (result3.size() == 0) {
+            realm.beginTransaction();
+            tokenCheckModel = realm.createObject(TokenCheckModel.class); // 새 객체 만들기
+            tokenCheckModel.setCheck(false);
+            realm.commitTransaction();
+
+            checkbox.setChecked(false);
+        } else {
+            tokenCheckModel = result3.get(0);
+            checkbox.setChecked(tokenCheckModel.isCheck());
+        }
 
         if(result1.size() != 0) {
             token = result1.get(0).getToken();
@@ -71,7 +87,6 @@ public class SettingActivity extends AppCompatActivity {
 
         email  = result2.get(0).getEmail();
 
-        checkbox = (CheckBox) findViewById(R.id.push_checkbox);
         logout = (LinearLayout) findViewById(R.id.logout);
 
         logout.setOnClickListener(new View.OnClickListener() {
@@ -87,14 +102,14 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
-                    Log.d("Token : ", token);
                     Call<TokenPushModel> load = pushToken.pushToken(token, email);
 
                     load.enqueue(new Callback<TokenPushModel>() {
                         @Override
                         public void onResponse(Call<TokenPushModel> call, Response<TokenPushModel> response) {
-                            TokenPushModel data = response.body();
-                            Log.i("data", data.getStatus() + "");
+                            realm.beginTransaction();
+                            tokenCheckModel.setCheck(true);
+                            realm.commitTransaction();
                         }
 
                         @Override
@@ -108,8 +123,9 @@ public class SettingActivity extends AppCompatActivity {
                     load.enqueue(new Callback<TokenPushModel>() {
                         @Override
                         public void onResponse(Call<TokenPushModel> call, Response<TokenPushModel> response) {
-                            TokenPushModel data = response.body();
-                            Log.i("data", data.getStatus() + "");
+                            realm.beginTransaction();
+                            tokenCheckModel.setCheck(false);
+                            realm.commitTransaction();
                         }
 
                         @Override
