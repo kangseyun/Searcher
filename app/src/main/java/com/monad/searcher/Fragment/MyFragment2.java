@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -46,7 +47,6 @@ public class MyFragment2 extends Fragment {
     private ImageView helpBtn;
     private HelpDialog helpDialog;
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,6 +55,7 @@ public class MyFragment2 extends Fragment {
         setRecyclerView();
         getData();
         setHelp();
+
 
         return v;
     }

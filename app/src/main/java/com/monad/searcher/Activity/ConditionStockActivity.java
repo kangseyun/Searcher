@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.monad.searcher.Adapter.StockRecyclerViewAdapter;
 import com.monad.searcher.Model.ConditionDetailModel;
@@ -45,7 +46,8 @@ public class ConditionStockActivity extends AppCompatActivity {
     private int num;
     private TextView subject, condition_content;
     private String stock_title, content;
-
+    private Button refresh;
+    private Call<List<ConditionDetailModel>> load;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,18 @@ public class ConditionStockActivity extends AppCompatActivity {
         setRecyclerView();
         setToolbar();
         getData();
+
+
+        refresh = (Button) findViewById(R.id.refresh);
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDataset.clear();
+                call();
+                Toast toast = Toast.makeText(getApplicationContext(), "갱신 완료", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
     }
 
     private void setRecyclerView()
@@ -119,10 +133,12 @@ public class ConditionStockActivity extends AppCompatActivity {
 
     private void getData() {
         retrofit = RetrofitService.getInstnace();
+        call();
+    }
+
+    private void call() {
         conditionDetail = retrofit.create(ConditionDetail.class);
-
-        Call<List<ConditionDetailModel>> load = conditionDetail.getStock(num);
-
+        load = conditionDetail.getStock(num);
         load.enqueue(new Callback<List<ConditionDetailModel>>() {
             @Override
             public void onResponse(Call<List<ConditionDetailModel>> call, Response<List<ConditionDetailModel>> response) {
@@ -130,7 +146,7 @@ public class ConditionStockActivity extends AppCompatActivity {
                 for(ConditionDetailModel obj : data) {
                     myDataset.add(new StockData(obj.getItem_name(), obj.getItem_code()));
                 }
-
+                Log.i("call", "call");
                 mAdapter.notifyDataSetChanged();
             }
 
