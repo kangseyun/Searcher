@@ -44,7 +44,7 @@ public class SettingActivity extends AppCompatActivity {
     private Retrofit retrofit;
     private PushToken pushToken;
     private String token, email;
-    private LinearLayout logout;
+    private LinearLayout logout, notification;
     private TokenCheckModel tokenCheckModel;
 
     @Override
@@ -88,12 +88,20 @@ public class SettingActivity extends AppCompatActivity {
         email  = result2.get(0).getEmail();
 
         logout = (LinearLayout) findViewById(R.id.logout);
-
+        notification = (LinearLayout) findViewById(R.id.notification);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent notification = new Intent(SettingActivity.this, NotificationActivity.class);
+                startActivity(notification);
             }
         });
 

@@ -11,18 +11,36 @@ import android.util.Log;
 
 import com.google.firebase.messaging.RemoteMessage;
 import com.monad.searcher.Activity.MainActivity;
+import com.monad.searcher.Model.NotificationModel;
+import com.monad.searcher.Model.TokenCheckModel;
 import com.monad.searcher.R;
+
+import io.realm.Realm;
+import retrofit2.Retrofit;
 
 
 public class MyFirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
     private static final String TAG = "FirebaseMsgService";
-
+    private Realm realm;
+    private Retrofit retrofit;
+    private NotificationModel notificationModel;
+    public MyFirebaseMessagingService() {
+    }
     // [START receive_message]
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+        realm = Realm.getDefaultInstance();
 
-        //추가한것
-        sendNotification(remoteMessage.getData().get("message").toString());
+        String content = remoteMessage.getData().get("message").toString();
+
+        realm.beginTransaction();
+        notificationModel = realm.createObject(NotificationModel.class); // 새 객체 만들기
+        notificationModel.setContent(content);
+        realm.commitTransaction();
+
+
+        sendNotification(content);
+        Log.i("Received", "call");
     }
 
     private void sendNotification(String messageBody) {

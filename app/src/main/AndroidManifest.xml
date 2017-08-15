@@ -47,10 +47,9 @@
 
         <activity android:name=".Activity.ConditionStockActivity" />
         <activity android:name=".Activity.NoticeViewActivity" />
-        <activity android:name=".Activity.ConditionStockDetailActivity"/>
-        <activity android:name=".Activity.Fragment3DetailActivity"/>
-
-
+        <activity android:name=".Activity.ConditionStockDetailActivity" />
+        <activity android:name=".Activity.Fragment3DetailActivity" />
+        <activity android:name=".Activity.NotificationActivity"></activity>
     </application>
 
 </manifest>
