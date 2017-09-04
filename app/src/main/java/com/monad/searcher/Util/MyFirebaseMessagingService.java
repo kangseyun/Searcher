@@ -24,9 +24,11 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
     private Realm realm;
     private Retrofit retrofit;
     private NotificationModel notificationModel;
+
+
     public MyFirebaseMessagingService() {
     }
-    // [START receive_message]
+
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         realm = Realm.getDefaultInstance();

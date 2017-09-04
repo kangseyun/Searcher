@@ -68,6 +68,7 @@ public class NotificationService extends Service {
     private Emitter.Listener onNewMessage = new Emitter.Listener() {
         @Override
         public void call(final Object... args) {
+            Log.i("response", "response");
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
