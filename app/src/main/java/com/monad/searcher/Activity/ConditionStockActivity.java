@@ -1,8 +1,14 @@
 package com.monad.searcher.Activity;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -73,12 +79,33 @@ public class ConditionStockActivity extends AppCompatActivity {
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myDataset.clear();
-                call();
-                Toast toast = Toast.makeText(getApplicationContext(), "갱신 완료", Toast.LENGTH_SHORT);
-                toast.show();
+//                myDataset.clear();
+//                call();
+//                Toast toast = Toast.makeText(getApplicationContext(), "갱신 완료", Toast.LENGTH_SHORT);
+//                toast.show();
+                sendNotification("HelloWorld");
             }
         });
+    }
+
+    private void sendNotification(String messageBody) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
+                PendingIntent.FLAG_ONE_SHOT);
+
+        Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.mipmap.searcher_icon)
+                .setContentTitle("써처 알림")
+                .setContentText(messageBody)
+                .setAutoCancel(true)
+                .setSound(defaultSoundUri)
+                .setContentIntent(pendingIntent);
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        notificationManager.notify(0, notificationBuilder.build());
     }
 
     private void setRecyclerView()

@@ -17,6 +17,7 @@ import com.monad.searcher.Adapter.PagerAdapter;
 import com.monad.searcher.Model.LoginData;
 import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.R;
+import com.monad.searcher.Util.NotificationService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,6 +39,11 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         FirebaseMessaging.getInstance().subscribeToTopic("news");
         FirebaseInstanceId.getInstance().getToken();
         init();
+
+
+
+        Intent i = new Intent(this, NotificationService.class);
+        startService(i);
 
         Thread checkTokenThread = new Thread() {
             LoginSingleton login = LoginSingleton.getInstance();

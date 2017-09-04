@@ -44,7 +44,7 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
+        <service android:name=".Util.NotificationService" />
         <activity android:name=".Activity.ConditionStockActivity" />
         <activity android:name=".Activity.NoticeViewActivity" />
         <activity android:name=".Activity.ConditionStockDetailActivity" />
