@@ -28,15 +28,25 @@ public class LoginSingleton {
     private String email;
     private String token;
     private String display_name;
+    private String push;
+    private boolean flag;
 
     public void setStatus(String status) { this.status = status; }
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public void setPush(String push) {
+        this.push = push;
+    }
+
     public void setToken(String token) {
         this.token = token;
     }
     public void setDisplayName(String displayName) { this.display_name = displayName; }
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
 
     public String getStatus() {
         while(status.equals("")) {
@@ -57,7 +67,8 @@ public class LoginSingleton {
         return token;
     }
     public String getDisplayName() { return display_name; }
-
+    public String getPush() { return push; }
+    public boolean getFlag() { return flag; }
     public static LoginSingleton getInstance() {
         if(instance == null)
             instance = new LoginSingleton();
@@ -80,6 +91,8 @@ public class LoginSingleton {
 
                 setEmail(data.getEmail());
                 setToken(data.getToken());
+                setPush(data.getPush());
+                Log.i("push", data.getPush());
 
                 RealmManager.open();
                 RealmManager.CreateLoginDao().save(data);

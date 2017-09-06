@@ -25,6 +25,7 @@ import com.monad.searcher.Model.LoginData;
 import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.R;
 import com.monad.searcher.Retrofit.Login;
+import com.monad.searcher.Util.NotificationService;
 import com.monad.searcher.Util.RealmManager;
 import com.monad.searcher.Util.RetrofitService;
 
@@ -110,6 +111,9 @@ public class LoginActivity extends AppCompatActivity implements
                         RealmManager.CreateLoginDao().remove(data.get(0));
 
                         finishAffinity();
+                        Intent i = new Intent(LoginActivity.this, NotificationService.class);
+                        stopService(i);
+
                         android.os.Process.killProcess(android.os.Process.myPid());
                         System.exit(0);
                     }

@@ -62,7 +62,9 @@ public class MyFragment extends Fragment {
             @Override
             public void onResponse(Call<List<BasicStockModel>> call, Response<List<BasicStockModel>> response) {
                 List<BasicStockModel> data = response.body();
-                kospi.setText(data.get(0).getLastTradePrice());
+                try {
+                    kospi.setText(data.get(0).getLastTradePrice());
+                } catch (Exception e) {}
             }
 
             @Override
@@ -79,7 +81,11 @@ public class MyFragment extends Fragment {
             @Override
             public void onResponse(Call<List<BasicStockModel>> call, Response<List<BasicStockModel>> response) {
                 List<BasicStockModel> data = response.body();
-                kosdaq.setText(data.get(0).getLastTradePrice());
+                try {
+                    kosdaq.setText(data.get(0).getLastTradePrice());
+                } catch (Exception e) {
+
+                }
             }
 
             @Override
@@ -96,7 +102,11 @@ public class MyFragment extends Fragment {
             @Override
             public void onResponse(Call<List<BasicStockModel>> call, Response<List<BasicStockModel>> response) {
                 List<BasicStockModel> data = response.body();
-                dji.setText(data.get(0).getLastTradePrice());
+                try {
+                    dji.setText(data.get(0).getLastTradePrice());
+                } catch (Exception e) {
+
+                }
             }
 
             @Override
@@ -113,7 +123,11 @@ public class MyFragment extends Fragment {
             @Override
             public void onResponse(Call<List<BasicStockModel>> call, Response<List<BasicStockModel>> response) {
                 List<BasicStockModel> data = response.body();
-                nasdaq.setText(data.get(0).getLastTradePrice());
+                try {
+                    nasdaq.setText(data.get(0).getLastTradePrice());
+                } catch (Exception e) {
+
+                }
             }
 
             @Override

@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.monad.searcher.Model.BasicStockModel;
 import com.monad.searcher.Model.LoginData;
+import com.monad.searcher.Model.LoginSingleton;
 import com.monad.searcher.Model.TokenCheckModel;
 import com.monad.searcher.Model.TokenModel;
 import com.monad.searcher.Model.TokenPushModel;
@@ -88,7 +89,6 @@ public class SettingActivity extends AppCompatActivity {
         email  = result2.get(0).getEmail();
 
         logout = (LinearLayout) findViewById(R.id.logout);
-        notification = (LinearLayout) findViewById(R.id.notification);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,14 +97,15 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+
+        notification = (LinearLayout) findViewById(R.id.notification);
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent notification = new Intent(SettingActivity.this, NotificationActivity.class);
-                startActivity(notification);
+                Intent i = new Intent(SettingActivity.this, NotificationActivity.class);
+                startActivity(i);
             }
         });
-
 
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -117,6 +118,7 @@ public class SettingActivity extends AppCompatActivity {
                         public void onResponse(Call<TokenPushModel> call, Response<TokenPushModel> response) {
                             realm.beginTransaction();
                             tokenCheckModel.setCheck(true);
+                            LoginSingleton.getInstance().setFlag(true);
                             realm.commitTransaction();
                         }
 
@@ -131,6 +133,7 @@ public class SettingActivity extends AppCompatActivity {
                     load.enqueue(new Callback<TokenPushModel>() {
                         @Override
                         public void onResponse(Call<TokenPushModel> call, Response<TokenPushModel> response) {
+                            LoginSingleton.getInstance().setFlag(false);
                             realm.beginTransaction();
                             tokenCheckModel.setCheck(false);
                             realm.commitTransaction();

@@ -79,34 +79,15 @@ public class ConditionStockActivity extends AppCompatActivity {
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                myDataset.clear();
-//                call();
-//                Toast toast = Toast.makeText(getApplicationContext(), "갱신 완료", Toast.LENGTH_SHORT);
-//                toast.show();
-                sendNotification("HelloWorld");
+                myDataset.clear();
+                call();
+                Toast toast = Toast.makeText(getApplicationContext(), "갱신 완료", Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
     }
 
-    private void sendNotification(String messageBody) {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
-                PendingIntent.FLAG_ONE_SHOT);
 
-        Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.mipmap.searcher_icon)
-                .setContentTitle("써처 알림")
-                .setContentText(messageBody)
-                .setAutoCancel(true)
-                .setSound(defaultSoundUri)
-                .setContentIntent(pendingIntent);
-        NotificationManager notificationManager =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        notificationManager.notify(0, notificationBuilder.build());
-    }
 
     private void setRecyclerView()
     {

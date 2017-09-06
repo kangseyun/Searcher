@@ -149,15 +149,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
-                        android:id="@+id/cost"
                         android:gravity="center"
                         android:textColor="#FFF"
                         android:textStyle="bold"
                         android:layout_weight="1"
-                        android:text="거래대금"
+                        android:text="현재가"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                     <TextView
+                        android:id="@+id/cost"
                         android:text="2,490,000"
                         android:gravity="center"
                         android:textColor="#FFF"

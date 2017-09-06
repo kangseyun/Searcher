@@ -4,6 +4,10 @@ import android.util.Log;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -24,6 +28,10 @@ public class LoginData extends RealmObject {
     @SerializedName("token")
     private String token;
 
+    @SerializedName("push")
+    private String push;
+
+
     public String getLoginStatus() {
         return status;
     }
@@ -33,4 +41,5 @@ public class LoginData extends RealmObject {
     public String getToken() {
         return token;
     }
+    public String getPush() {return push; }
 }

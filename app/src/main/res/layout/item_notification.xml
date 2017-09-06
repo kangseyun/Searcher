@@ -6,8 +6,9 @@
     android:layout_height="50dp"
     android:background="#fff">
     <TextView
-        android:gravity="center"
+        android:gravity="left|center"
         android:text="Text"
+        android:paddingLeft="10dp"
         android:id="@+id/item_notification"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

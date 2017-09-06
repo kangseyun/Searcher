@@ -78,7 +78,7 @@ public class NotificationActivity extends AppCompatActivity {
         RealmQuery<NotificationModel> query = realm.where(NotificationModel.class);
         RealmResults<NotificationModel> result = query.findAll();
 
-        for(int i = 1; i<10; i++) {
+        for(int i = 1; i<20; i++) {
             try {
                 myDataset.add(result.get(result.size() - i));
             } catch (Exception e) {
