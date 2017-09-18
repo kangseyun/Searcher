@@ -13,14 +13,14 @@ import retrofit2.http.GET;
 
 public interface BasicStock {
     @GET("/kospi/")
-    Call<List<BasicStockModel>> getKospi();
+    Call<BasicStockModel> getKospi();
 
     @GET("/kosdaq/")
-    Call<List<BasicStockModel>> getKosdaq();
+    Call<BasicStockModel> getKosdaq();
 
     @GET("/nasdaq/")
-    Call<List<BasicStockModel>> getNasdaq();
+    Call<BasicStockModel> getNasdaq();
 
     @GET("/dji/")
-    Call<List<BasicStockModel>> getDji();
+    Call<BasicStockModel> getDji();
 }

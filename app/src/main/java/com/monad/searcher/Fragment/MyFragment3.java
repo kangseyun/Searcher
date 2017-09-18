@@ -96,6 +96,7 @@ public class MyFragment3 extends Fragment{
         kosdaq_down_point4 = (TextView) v.findViewById(R.id.kosdaq_down_point4);
         kosdaq_down_point5 = (TextView) v.findViewById(R.id.kosdaq_down_point5);
     }
+
     private void getData() {
         retrofit = RetrofitService.getInstnace();
         rank = retrofit.create(Rank.class);

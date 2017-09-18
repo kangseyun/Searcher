@@ -56,82 +56,82 @@ public class MyFragment extends Fragment {
     }
 
     private void getKospi() {
-        Call<List<BasicStockModel>> load = basicStock.getKospi();
+        Call<BasicStockModel> load = basicStock.getKospi();
 
-        load.enqueue(new Callback<List<BasicStockModel>>() {
+        load.enqueue(new Callback<BasicStockModel>() {
             @Override
-            public void onResponse(Call<List<BasicStockModel>> call, Response<List<BasicStockModel>> response) {
-                List<BasicStockModel> data = response.body();
+            public void onResponse(Call<BasicStockModel> call, Response<BasicStockModel> response) {
+                BasicStockModel data = response.body();
                 try {
-                    kospi.setText(data.get(0).getLastTradePrice());
+                    kospi.setText(data.getData());
                 } catch (Exception e) {}
             }
 
             @Override
-            public void onFailure(Call<List<BasicStockModel>> call, Throwable t) {
+            public void onFailure(Call<BasicStockModel> call, Throwable t) {
                 Log.i("fail",t.getMessage());
             }
         });
     }
 
     private void getKosdaq() {
-        Call<List<BasicStockModel>> load = basicStock.getKosdaq();
+        Call<BasicStockModel> load = basicStock.getKosdaq();
 
-        load.enqueue(new Callback<List<BasicStockModel>>() {
+        load.enqueue(new Callback<BasicStockModel>() {
             @Override
-            public void onResponse(Call<List<BasicStockModel>> call, Response<List<BasicStockModel>> response) {
-                List<BasicStockModel> data = response.body();
+            public void onResponse(Call<BasicStockModel> call, Response<BasicStockModel> response) {
+                BasicStockModel data = response.body();
                 try {
-                    kosdaq.setText(data.get(0).getLastTradePrice());
+                    kosdaq.setText(data.getData());
                 } catch (Exception e) {
 
                 }
             }
 
             @Override
-            public void onFailure(Call<List<BasicStockModel>> call, Throwable t) {
+            public void onFailure(Call<BasicStockModel> call, Throwable t) {
                 Log.i("fail",t.getMessage());
             }
         });
     }
 
     private void getDji() {
-        Call<List<BasicStockModel>> load = basicStock.getDji();
+        Call<BasicStockModel> load = basicStock.getDji();
 
-        load.enqueue(new Callback<List<BasicStockModel>>() {
+        load.enqueue(new Callback<BasicStockModel>() {
             @Override
-            public void onResponse(Call<List<BasicStockModel>> call, Response<List<BasicStockModel>> response) {
-                List<BasicStockModel> data = response.body();
+            public void onResponse(Call<BasicStockModel> call, Response<BasicStockModel> response) {
+                BasicStockModel data = response.body();
                 try {
-                    dji.setText(data.get(0).getLastTradePrice());
+                    dji.setText(data.getData());
                 } catch (Exception e) {
 
                 }
             }
 
             @Override
-            public void onFailure(Call<List<BasicStockModel>> call, Throwable t) {
+            public void onFailure(Call<BasicStockModel> call, Throwable t) {
                 Log.i("fail",t.getMessage());
             }
         });
     }
 
     private void getNasdaq() {
-        Call<List<BasicStockModel>> load = basicStock.getNasdaq();
+        Call<BasicStockModel> load = basicStock.getNasdaq();
 
-        load.enqueue(new Callback<List<BasicStockModel>>() {
+        load.enqueue(new Callback<BasicStockModel>() {
             @Override
-            public void onResponse(Call<List<BasicStockModel>> call, Response<List<BasicStockModel>> response) {
-                List<BasicStockModel> data = response.body();
+            public void onResponse(Call<BasicStockModel> call, Response<BasicStockModel> response) {
+                BasicStockModel data = response.body();
                 try {
-                    nasdaq.setText(data.get(0).getLastTradePrice());
+                    nasdaq.setText(data.getData());
                 } catch (Exception e) {
 
                 }
             }
 
             @Override
-            public void onFailure(Call<List<BasicStockModel>> call, Throwable t) {
+            public void onFailure(Call<BasicStockModel> call, Throwable t) {
                 Log.i("fail",t.getMessage());
             }
         });

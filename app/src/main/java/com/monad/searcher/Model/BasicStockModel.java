@@ -1,26 +1,23 @@
 package com.monad.searcher.Model;
 
+import com.monad.searcher.Retrofit.BasicStock;
+
 /**
  * Created by temp on 2017. 7. 13..
  */
 
 public class BasicStockModel {
-    private String LastTradePrice;
-    private String StockSymbol;
+    private String data;
 
-    public String getLastTradePrice() {
-        return LastTradePrice;
+    public BasicStockModel() {
+
     }
 
-    public void setLastTradePrice(String lastTradePrice) {
-        LastTradePrice = lastTradePrice;
+    public String getData() {
+        return data;
     }
 
-    public String getStockSymbol() {
-        return StockSymbol;
-    }
-
-    public void setStockSymbol(String stockSymbol) {
-        StockSymbol = stockSymbol;
+    public void setData(String data) {
+        this.data = data;
     }
 }
